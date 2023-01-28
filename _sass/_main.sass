@@ -1,0 +1,25 @@
+main
+  padding: var(--block)
+  .wrapper
+    margin: 0 auto
+    max-width: 1000px
+    @include big-desktop
+      max-width: 1200px
+
+    // Remove top margin for the first element
+    *:first-child
+      @extend .mtz
+
+    // Rearrange H1 page title if metadata present
+    > h1:first-child + .log
+      // Neutralize H! bottom margin
+      position: relative
+      top: calc(var(--two-third) * -1)
+      // Hide true H1
+      & + h1
+        @extend .hidden
+    
+    // Images
+    img
+      width: 100%
+      filter: brightness(33%)

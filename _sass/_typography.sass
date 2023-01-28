@@ -1,0 +1,48 @@
+// Standard paragraph and description list
+p
+  padding-block: var(--two-third)
+dl
+  dt
+    margin-top: 1em
+    @extend .bold
+  dd
+    @extend .list-item
+
+[page-collection='posts']
+  dt
+    @extend .green-fg
+  strong, em
+    @extend .yellow-fg
+
+// Cursor on abbreviations
+abbr
+  cursor: help
+
+// Default cursor
+p, span, code, li, small, q, cite
+  &[title], &[cite]
+    @extend .cursor-default
+
+// Super and sub scripts
+sup
+  vertical-align: top
+  font-size: medium
+sub
+  vertical-align: bottom
+  font-size: medium
+
+// Inserted and deleted
+ins
+  @extend .green-fg
+del
+  @extend .red-fg
+
+// Footnotes
+a.footnote
+  &:before
+    content: "["
+  &:after
+    content: "]"
+.footnotes
+  @extend .font-size-80, .border-top
+  margin-top: 3em

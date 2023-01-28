@@ -1,0 +1,41 @@
+tt, code, kbd, samp
+  @extend .font-size-90, .font-mono
+
+// INLINE
+code.highlighter-rouge
+  @extend .secondary-fg, .rounded, .highlight
+  letter-spacing: -1px
+
+// BLOCK
+// Fenced, kramdown, indented:
+// div.highlighter-rouge > div.highlight > pre.highlight > code
+// liquid:
+// figure.highlight > pre > code
+.highlight pre
+  line-height: .9em
+  overflow: auto
+  @extend .padding-box, .rounded, .liminal-bg
+  code
+    @extend .font-size-75
+
+// 
+// // Minimal
+// div.minimal.highlighter-rouge, div.minimal.highlighter-rouge div.highlight
+//   @extend .inline
+// div.minimal.highlighter-rouge pre
+//   @extend .inline-block
+// // API is minimal
+// .api > div.highlighter-rouge
+//   @extend .minimal
+// 
+// // Spacing and code blocks inside lists
+// .highlighter-rouge 
+//   @extend .highlight
+//   margin-top: $space/2
+// 
+// pre.highlight, .highlight pre
+// 
+//   // Fix for mobile
+//   white-space: pre-wrap
+//   word-wrap: break-word
+//   overflow: autox

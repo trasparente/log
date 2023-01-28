@@ -1,0 +1,20 @@
+//
+// DISPLAY screen width
+// Class: .screen-width
+// --------------------------------------
+.screen-width
+  @include phone
+    &::after
+      content: "max width: 599px phone"
+  @include tablet-vertical
+    &::after
+      content: "min-width: 600px tablet-vertical"
+  @include tablet-horizontal
+    &::after
+      content: "min-width: 599px tablet-horizontal"
+  @include desktop
+    &::after
+      content: "min-width: 1200px desktop"
+  @include big-desktop
+    &::after
+      content: "min-width: 1800px big-desktop"

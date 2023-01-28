@@ -1,0 +1,25 @@
+body
+  @extend .bg, .fg, .font-size, .line-height, .font-sans, .mpz
+  -webkit-font-smoothing: subpixel-antialiased
+
+// Log box
+.log
+  @extend .font-size-80, .secondary-fg
+  > span
+    margin-left: var(--two-third)
+  p
+    @extend .mpz
+
+// Pagination
+.pagination
+  @extend .font-size-80, .secondary-fg, .padding-unit
+  @extend .flex, .space-between, .border-top
+  margin-top: var(--block)
+
+// Figure
+figure
+  @extend .mz
+  figcaption
+    @extend .font-size-75, .secondary-fg
+    > p:only-child
+      @extend .pz

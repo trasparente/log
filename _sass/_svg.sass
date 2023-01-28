@@ -1,0 +1,40 @@
+svg[class^=icon]
+  @extend .link-fg
+  width: var(--icon-width)
+  height: var(--icon-width)
+  use
+    &:first-of-type
+      @extend .inline
+    &:last-of-type
+      @extend .hidden
+  &:hover use
+    &:first-of-type
+      @extend .hidden
+    &:last-of-type
+      @extend .inline
+  &:active, &.active
+    @extend .fg
+  &.icon-to-top
+    @extend .block, .z-top, .margin-half-icon, .cursor-pointer
+    opacity: 0
+    position: fixed
+    transition: opacity 0.4s
+    bottom: 0
+    right: 0
+
+//
+// SHOW TO-TOP ARROW when scrolled 1 viewport
+// --------------------------------------
+html.scrolled svg.icon-to-top
+  opacity: 1
+
+//
+// ROTATION of GEAR icon when ajax request
+// --------------------------------------
+html.ajax svg.icon-gear
+  animation: rotate 3s linear infinite
+@keyframes rotate
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(360deg)

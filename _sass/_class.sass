@@ -1,0 +1,226 @@
+// TEXT
+.inherit-text
+  font-family: inherit
+  font-size: inherit
+  line-height: inherit
+
+.line-height
+  line-height: var(--line-height)
+
+// ALIGN
+.center
+  text-align: center
+  margin-inline: auto
+.right
+  text-align: right
+.left
+  text-align: left
+
+// FLOAT
+.float-right
+  float: right
+
+.font-mono
+  font-family: var(--font-mono)
+.font-sans
+  font-family: var(--font-sans)
+.font-eurostile
+  font-family: var(--font-eurostile)
+
+.font-size
+  font-size: var(--font-size)
+.font-size-90
+  font-size: 91%
+.font-size-80
+  font-size: 80%
+.font-size-75
+  font-size: 75%
+
+.bold
+  font-weight: bold
+.uppercase
+  text-transform: uppercase
+.capitalize
+  text-transform: capitalize
+
+// MARGIN
+// --------------------------------------
+.mz
+  margin: 0
+.mtz
+  margin-top: 0
+.mbz
+  margin-bottom: 0
+.mvz
+  margin-block: 0
+.mh23
+  margin: 0 var(--two-third)
+.mv1
+  margin-block: 1em
+.mt1
+  margin-block-start: 1em
+.mb1
+  margin-block-end: 1em
+.margin-button
+  margin: var(--spacing)
+.margin-minimal
+  margin: var(--spacing-minimal)
+.margin-box
+  margin: var(--spacing-box)
+.margin-half-icon
+  margin: calc(var(--icon-width)/2)
+// PADDING
+// --------------------------------------
+.pz
+  padding: 0
+.ptz
+  padding-top: 0
+.pbz
+  padding-bottom: 0
+.padding-unit
+  padding: var(--spacing-unit)
+.padding-minimal
+  padding: var(--spacing-minimal)
+.padding-button
+  padding: var(--spacing)
+.padding-box
+  padding: var(--spacing-box)
+// SPACING
+// --------------------------------------
+.spacing-minimal
+  @extend .padding-minimal, .margin-minimal
+.mpz
+  @extend .mz, .pz
+
+// WIDTH
+.width-30
+  max-width: 30%
+
+// DISPLAY
+.block
+  display: block
+.initial
+  display: initial
+.inline
+  display: inline
+.inline-block
+  display: inline-block
+.list-item
+  display: list-item
+.inline-list-item
+  display: inline list-item
+//
+// FLEX AND GRID
+// --------------------------------------
+.flex
+  display: flex
+.flex-wrap
+  flex-wrap: wrap
+.space-between
+  justify-content: space-between
+.space-around
+  justify-content: space-around
+.gap-1
+  gap: 1em
+.grid
+  display: grid
+
+// Z-INDEX
+.z-mid
+  z-index: 1
+.z-top
+  z-index: 2
+
+// No Appearance
+.no-appearance
+  appearance: none
+  -webkit-appearance: none
+
+// LISTS
+.list-style-none
+  list-style: none
+
+// BORDER
+.no-border
+  border-width: 0
+.border
+  @extend .border-top, .border-bottom, .border-left, .border-right
+.border-bottom
+  border-bottom: 1px solid var(--subtle)
+.border-top
+  border-top: 1px solid var(--subtle)
+.border-right
+  border-right: 1px solid var(--subtle)
+.border-left
+  border-left: 1px solid var(--subtle)
+.rounded-big
+  border-radius: .5em
+.rounded
+  border-radius: .25em
+
+// CURSOR
+html
+  .cursor-pointer
+    cursor: pointer
+  .cursor-default
+    cursor: default
+  &.ajax
+    cursor: wait
+    a, .cursor-pointer, .cursor-default
+      cursor: wait
+
+// BLINK
+.blink
+  animation: blinker 1s step-start infinite
+@keyframes blinker
+  50%
+    opacity: .3
+
+//
+// HIDE CLASSES
+// --------------------------------------
+.hidden,
+.only-visible-child,
+html.logged .unlogged,
+html.unlogged .logged,
+html.admin .guest,
+html.guest .admin,
+html.online .offline,
+html.offline .online,
+html.updated .behind,
+html.behind .updated,
+html.blur .focus,
+html.focus .blur,
+body[github-fork=true] .unforked,
+body[github-fork=false] .forked,
+  display: none
+
+.only-visible-child, .only-visible-child::marker
+  @extend .faint-fg
+
+//
+// COLOR PREF SCHEME
+// --------------------------------------
+//
+// PREFER COLOR SCHEME
+// Class: .prefers-color-scheme
+// --------------------------------------
+@media not all and (prefers-color-scheme)
+  .prefers-color-scheme::after
+    content: "not-supported"
+
+@media (prefers-color-scheme)
+  .prefers-color-scheme::after
+    content: "supported"
+
+@media (prefers-color-scheme: light)
+  .prefers-color-scheme::after
+    content: "light"
+
+@media (prefers-color-scheme: dark)
+  .prefers-color-scheme::after
+    content: "dark"
+
+@media (prefers-color-scheme: no-preference)
+  .prefers-color-scheme::after
+    content: "no-preference"

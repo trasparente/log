@@ -1,0 +1,22 @@
+<figure>
+  {% if include.url %}<a ref="_blank" href="{{ include.url }}">{% endif %}
+  <img src="{{ include.url }}" alt="{{ include.alt | default: include.url }}" />
+  {% if include.url %}</a>{% endif %}
+  {% if include.caption %}<figcaption>{{ include.caption | markdownify }}</figcaption>{% endif %}
+</figure>
+
+{%- capture api -%}
+## Image
+
+Description
+
+```liquid
+{% raw %}{% include widgets/image.html %}{% endraw %}
+```
+
+**Includes**
+
+- `url`: image URL
+- `alt`: image alternative text
+- `caption`: image caption markdown text
+{%- endcapture -%}

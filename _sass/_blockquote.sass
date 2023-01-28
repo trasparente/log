@@ -1,0 +1,14 @@
+blockquote
+  @extend .liminal-bg, .padding-box
+  *:first-child
+    @extend .mtz, .ptz
+  *:last-child
+    @extend .mbz, .pbz
+  margin: 1em 0
+  border-left: 5px solid var(--subtle)
+  &[cite], &[title]
+    @extend .cursor-default
+  &[cite]::after
+    content: attr(cite)
+    font-style: italic
+    @extend .secondary-fg, .block, .font-size-90, .right

@@ -1,0 +1,77 @@
+// Mixin for Dark/Light mode
+@mixin colors($mode)
+  // Dark mode
+  @if $mode == 'dark'
+    --bg:        hsl(0, 0%, 3%)
+    --fg:        hsl(0, 0%, 80%)
+    --secondary: hsl(0, 0%, 47%)
+    @each $shade, $lightness in $base-lightness
+      --#{$shade}: #{hsl(0, 0%, $lightness)}
+    // Inverse
+    --bg-inverse: hsl(0, 0%, 97%)
+    --fg-inverse: hsl(0, 0%, 17%)
+    // Base colors
+    // --{name}:    saturation=40% lightness=-5%
+    // --{name}-bg: saturation=45% lightness=25%
+    @each $name, $c in $base-colors
+      $h: hue($c)
+      $l: lightness($c)-5%
+      --#{$name}: #{hsl($h, saturation($c), lightness($c))}
+      --#{$name}-fg: #{hsl($h, 55%, 45%)}
+      --#{$name}-bg: #{hsl($h, 50%, 20%)}
+      @each $shade, $lightness in $base-lightness
+        --#{$name}-#{$shade}-bg: #{hsl($h, 50%, $lightness)}
+  // Light mode
+  @if $mode == 'light'
+    --bg:        hsl(0, 0%, 97%)
+    --fg:        hsl(0, 0%, 17%)
+    --secondary: hsl(0, 0%, 48%)
+    @each $shade, $lightness in $base-lightness
+      --#{$shade}: #{hsl(0, 0%, (100%-$lightness))}
+    // Inverse
+    --bg-inverse: hsl(0, 0%, 3%)
+    --fg-inverse: hsl(0, 0%, 80%)
+    // Base colors
+    // --{name}:    saturation=55% lightness=40%
+    // --{name}-bg: saturation=55% lightness=65%
+    @each $name, $c in $base-colors
+      $h: hue($c)
+      --#{$name}: #{hsl($h, saturation($c), lightness($c))}
+      --#{$name}-fg: #{hsl($h, 65%, 38%)}
+      --#{$name}-bg: #{hsl($h, 55%, 65%)}
+      @each $shade, $lightness in $base-lightness
+        --#{$name}-#{$shade}-bg: #{hsl($h, 55%, (100%-$lightness))}
+  //  LINKS
+  --link: #{var(--blue-fg)}
+
+//
+// SCREEN WIDTH
+// --------------------------------------
+@mixin phone
+  @media (max-width: 599px)
+    @content
+@mixin tablet-vertical
+  @media (min-width: 600px)
+    @content
+@mixin tablet-horizontal
+  @media (min-width: 900px)
+    @content
+@mixin desktop
+  @media (min-width: 1200px)
+    @content
+@mixin big-desktop
+  @media (min-width: 1800px)
+    @content
+
+//
+// SCROLLBARs
+// --------------------------------------
+@mixin scrollbars($thumb, $track)
+  scrollbar-color: $thumb $track
+  scrollbar-width: auto
+  &::-webkit-scrollbar-track
+    background: $track !important
+  &::-webkit-scrollbar-thumb
+    background: $thumb !important
+  &::-webkit-scrollbar
+    width: auto !important

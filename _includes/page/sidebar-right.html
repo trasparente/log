@@ -1,0 +1,21 @@
+<input type="checkbox" name="switch-right" id="switch-right">
+<label for="switch-right">{% include svg/gear.svg %}</label>
+<div class="wrapper">
+  <nav>
+    {% include widgets/login.html %}
+    <!-- PAGES in 'assets/pages/' -->
+    <details>
+      <summary>Assets</summary>
+      {%- assign assets_pages = site.html_pages | where_exp: 'item', 'item.path contains "assets/pages/"' -%}
+      {% for link in assets_pages %}<p><a href="{{ link.url | absolute_url }}"{% if page.url == link.url %} class="active"{% endif %}>{{ link.title | default: link.name }}</a></p>{% endfor %}
+    </details>
+  </nav>
+  <hr>
+  <div class='log'>
+    <p class='logged-role'></p>
+    <p class='prefers-color-scheme'>prefers-color-scheme: </p>
+    <p class='screen-width'></p>
+    <p time-relative='{{ site.time | date_to_rfc822 }}'>Build: </p>
+    <p><a href='{% include widgets/github_url.html %}' rel='external'>Repository</a> | <a href='{% include widgets/github_url.html path=page.path %}' rel='alternate'>Page</a>
+  </div>
+</div>

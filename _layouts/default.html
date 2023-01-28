@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang='{{ page.language | default: site.language | default: 'en' }}'>
+{% include page/head.html %}
+<body
+  onresize='resize()'
+  onload='update()'
+  onfocus='focus()'
+  onblur='blur()'
+  ononline='online()'
+  onoffline='offline()'
+  class='{{ page.class | append: ' ' | append: site.class | strip }}'
+  site-pages='{{ site.html_pages.size | plus: site.documents.size }}'
+  github-fork='{{ site.github.public_repositories | where: 'full_name', site.github.repository_nwo | first | map: 'fork' | first }}'
+  github-environment = '{{ site.github.environment }}'
+  page-title='{{ page.title | slugify }}'
+  page-collection='{{ page.collection }}'
+  page-categories='{{ page.categories | join: ',' }}'
+  page-tags='{{ page.tags | join: ',' }}'>
+  <aside class='sidebar sidebar-left'>{% include page/sidebar-left.html %}</aside>
+  <aside class='sidebar sidebar-right'>{% include page/sidebar-right.html %}</aside>
+  <main>
+    <div class='wrapper'>
+      {%- if page.metadata -%}<h1 id='{{ page.title | slugify }}'>{{ page.title }}</h1>{% include widgets/metadata.html %}{%- endif -%}
+      {{ content }}
+      {%- if page.pagination -%}{% include widgets/pagination.html %}{%- endif -%}
+    </div>
+  </main>
+  <a href='#top'>{% include svg/to_top.svg %}</a>
+  <div id='notification'></div>
+</body>
+</html>

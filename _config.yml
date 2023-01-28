@@ -1,0 +1,21 @@
+timezone: Europe/Rome
+baseurl: /log
+permalink: pretty
+repository: trasparente/log
+
+# DEFAULTS
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+  - scope:
+      type: posts
+    values:
+      metadata: true
+      pagination: true
+
+# COLLECTIONS
+collections:
+  docs:
+    output: true

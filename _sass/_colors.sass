@@ -1,0 +1,58 @@
+//
+// DARK MODE Default
+// Use @mixin colors
+// prefers-color-scheme: not-supported, no-preference or dark
+// --------------------------------------
+\:root
+  @include colors('dark')
+
+.inverse
+  @include colors('light')
+
+//
+// LIGHT MODE
+// --------------------------------------
+@media (prefers-color-scheme: light)
+  \:root
+    @include colors('light')
+
+  .inverse
+    @include colors('dark')
+
+//
+// CLASSES
+// --------------------------------------
+.bg
+  background-color: var(--bg)
+.fg
+  color: var(--fg)
+  stroke: var(--fg)
+  fill: var(--fg)
+.link-fg
+  color: var(--link)
+  stroke: var(--link)
+  fill: var(--link)
+.inverse-bg
+  background-color: var(--bg-inverse)
+.inverse-fg
+  color: var(--fg-inverse)
+
+@each $shade in $base-shades
+  .#{$shade}-bg
+    background-color: var(--#{$shade})
+  .#{$shade}-fg
+    color: var(--#{$shade})
+
+@each $name, $c in $base-colors
+  body.#{$name}-link
+    --link: var(--#{$name}-fg)
+  .#{$name}
+    --bg: var(--#{$name}-bg)
+    --subtle: var(--#{$name}-subtle-bg)
+  .#{$name}-bg
+    background-color: var(--#{$name}-bg)
+  .#{$name}-fg
+    color: var(--#{$name}-fg)
+  @each $shade, $lightness in $base-lightness
+    .#{$name}-#{$shade}-bg, .#{$name}.#{$shade}-bg
+      background-color: var(--#{$name}-#{$shade}-bg)

@@ -1,0 +1,10 @@
+#notification
+  @extend .flex, .cursor-default
+  flex-direction: column
+  position: fixed
+  top: 2.5em
+  right: .5em
+  p
+    @extend .subtle-bg, .padding-button, .rounded-big
+    &:empty
+      @extend .hidden

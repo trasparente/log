@@ -1,0 +1,15 @@
+table
+  border-spacing: 0
+  .search-container
+    display: table-caption
+    caption-side: top
+  th, td
+    @extend .bg, .fg, .padding-minimal
+  thead th, tfoot td
+    @extend .secondary-fg
+  thead th
+    @extend .border-bottom
+  tfoot td
+    @extend .border-top
+  tbody:nth-of-type(2n) td
+    @extend .subtle-bg

@@ -1,0 +1,60 @@
+//
+// BOTH SIDES COMMUN
+// --------------------------------------
+.sidebar
+
+  // CONTENT
+  .wrapper
+    @extend .liminal-bg, .z-mid
+    padding-block: 3em 0
+    padding-inline: 1em
+    overflow-y: scroll
+    height: 100vh
+    width: var(--sidebar-width)
+    position: fixed
+    top: 0
+    transition: 0.4s
+
+  // CHECKBOX HOVER AND CHECKED EFFECTS
+  [type=checkbox][id^="switch"]:checked ~ [for^="switch"] svg
+    @extend .active
+  // LABEL POSITION AND SIZE
+  [for^="switch"]
+    @extend .block, .z-top, .margin-half-icon
+    position: fixed
+
+// LEFT Dynamic
+.sidebar-left
+
+  // Style and position
+  .wrapper
+    @extend .border-right
+    left: calc(var(--sidebar-width)*-1)
+    &:hover
+      left: 0
+
+  // Reveal wrapper
+  [type=checkbox][id^="switch"]
+    &:hover, &:checked
+      & ~ .wrapper
+        left: 0
+
+// RIGHT Dymanic
+.sidebar-right
+
+  [for^="switch"]
+    right: 0
+
+  .wrapper
+
+    // Style and position
+    @extend .border-left
+    right: calc(var(--sidebar-width)*-1)
+    &:hover
+      right: 0
+
+  // Reveal wrapper
+  [type=checkbox][id^="switch"]
+    &:hover, &:checked
+      & ~ .wrapper
+        right: 0

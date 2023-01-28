@@ -1,0 +1,21 @@
+// Both main and sidebar details
+details summary
+  @extend .cursor-pointer, .inline-list-item
+  outline: none
+  // Width to fit content
+  // And clear both
+  &::after
+    display: table
+    content: ""
+
+// Only main > details
+main details
+  @extend .margin-box
+  summary
+    &::-webkit-details-marker, &::marker
+      color: var(--link)
+    &:hover
+      &::-webkit-details-marker, &::marker
+      color: var(--fg)
+    &:active
+      color: var(--link)

@@ -1,0 +1,21 @@
+input
+  @extend .font-size-90, .inherit-text
+  @extend .no-appearance, .no-border, .secondary-fg, .bg
+  &:focus
+    outline: none
+    @extend .liminal-bg
+  &.search-input
+    @extend .padding-minimal
+
+input, label[for]
+  @extend .cursor-pointer
+
+input[type=checkbox][id^=switch]
+  @extend .mpz, .hidden
+  &:checked + label[for^=switch]
+    @extend .active
+
+// Override Browser placeholder opacity
+::placeholder
+  // opacity: 0.54
+  opacity: 0.75

@@ -1,0 +1,17 @@
+<p><a href='#login' class='unlogged prevent' title="Click to login">Login</a><a href='#logout' class='logged prevent' title="Click to logout">Logout</a></p>
+{%- capture api -%}
+## Login
+
+Render two links with `href="#login"` and `href="#logout"`. Needs the [login]({{ 'docs/scripts/#login' | absolute_url }}) script.
+
+```liquid
+{% raw %}{% include widgets/login.html %}{% endraw %}
+```
+Render
+```html
+<p>
+  <a href="#login" class="unlogged prevent">Login</a>
+  <a href="#logout" class="logged prevent">Logout</a>
+</p>
+```
+{%- endcapture -%}
