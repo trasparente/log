@@ -13,7 +13,7 @@ How
 {% assign colors = 'blue,red,orange,yellow,green,fucsia,cyan' | split: ',' %}
 {% assign shades = 'secondary,faint,subtle,liminal,default' | split: ',' %}
 {% assign sub_shades = 'faint,subtle,liminal' | split: ',' %}
-<div class="flex">
+<div class="flex flex-wrap">
   <ul class="mz list-style-none">
     {% for s in shades %}<li class="{{ s }}-fg spacing-minimal">.{{ s }}-fg</li>{% endfor %}
     <li class="blink spacing-minimal">.blink</li>
