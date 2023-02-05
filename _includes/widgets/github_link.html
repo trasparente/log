@@ -1,8 +1,8 @@
-<a href='{% include widgets/github_url.html path=include.path %}' title='{% include widgets/github_url.html path=include.path %}'>{{ include.text | default: include.path | default: site.github.repository_url }}</a>
+<a href='{% include widgets/github_url.html path=include.path %}' title='{% include widgets/github_url.html path=include.path %}' rel='external'>{{ include.text | default: include.path | default: site.github.repository_url }}</a>
 {%- capture api -%}
-## GitHub link
+### GitHub link
 
-Render a markdown link to a file in this GitHub repository given the file path.
+Render a link to a file in this GitHub repository given the file path.
 
 ```liquid
 {% raw %}{% include widgets/github_link.html path='folder/file.ext' %}{% endraw %}
@@ -12,6 +12,6 @@ Render a markdown link to a file in this GitHub repository given the file path.
 
 - `path`: required (path) path of the file on the repository.  
 Default to the repository URL.
-- `text`: optional (string) text for the link, default to `path`.  
+- `text`: optional (string) text for the link, defaults to `path`.  
   With no path default to the repository URL.
 {%- endcapture -%}

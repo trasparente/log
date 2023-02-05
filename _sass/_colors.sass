@@ -53,6 +53,7 @@
     background-color: var(--#{$name}-bg)
   .#{$name}-fg
     color: var(--#{$name}-fg)
+    stroke: var(--#{$name}-fg)
   @each $shade, $lightness in $base-lightness
     .#{$name}-#{$shade}-bg, .#{$name}.#{$shade}-bg
       background-color: var(--#{$name}-#{$shade}-bg)

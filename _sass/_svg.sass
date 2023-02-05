@@ -4,18 +4,18 @@ svg[class^=icon]
   height: var(--icon-width)
   use
     &:first-of-type
-      @extend .inline
+      @extend .display-inline
     &:last-of-type
       @extend .hidden
   &:hover use
     &:first-of-type
       @extend .hidden
     &:last-of-type
-      @extend .inline
+      @extend .display-inline
   &:active, &.active
     @extend .fg
   &.icon-to-top
-    @extend .block, .z-top, .margin-half-icon, .cursor-pointer
+    @extend .display-block, .z-top, .margin-half-icon, .cursor-pointer
     opacity: 0
     position: fixed
     transition: opacity 0.4s

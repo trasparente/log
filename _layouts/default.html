@@ -8,7 +8,6 @@
   onblur='blur()'
   ononline='online()'
   onoffline='offline()'
-  class='{{ page.class | append: ' ' | append: site.class | strip }}'
   site-pages='{{ site.html_pages.size | plus: site.documents.size }}'
   github-fork='{{ site.github.public_repositories | where: 'full_name', site.github.repository_nwo | first | map: 'fork' | first }}'
   github-environment = '{{ site.github.environment }}'
@@ -18,7 +17,7 @@
   page-tags='{{ page.tags | join: ',' }}'>
   <aside class='sidebar sidebar-left'>{% include page/sidebar-left.html %}</aside>
   <aside class='sidebar sidebar-right'>{% include page/sidebar-right.html %}</aside>
-  <main>
+  <main class='{{ page.class | append: ' ' | append: site.class | strip }}'>
     <div class='wrapper'>
       {%- if page.metadata -%}<h1 id='{{ page.title | slugify }}'>{{ page.title }}</h1>{% include widgets/metadata.html %}{%- endif -%}
       {{ content }}

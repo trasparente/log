@@ -4,7 +4,6 @@
   @if $mode == 'dark'
     --bg:        hsl(0, 0%, 3%)
     --fg:        hsl(0, 0%, 80%)
-    --secondary: hsl(0, 0%, 47%)
     @each $shade, $lightness in $base-lightness
       --#{$shade}: #{hsl(0, 0%, $lightness)}
     // Inverse
@@ -25,7 +24,6 @@
   @if $mode == 'light'
     --bg:        hsl(0, 0%, 97%)
     --fg:        hsl(0, 0%, 17%)
-    --secondary: hsl(0, 0%, 48%)
     @each $shade, $lightness in $base-lightness
       --#{$shade}: #{hsl(0, 0%, (100%-$lightness))}
     // Inverse
@@ -48,19 +46,27 @@
 // SCREEN WIDTH
 // --------------------------------------
 @mixin phone
-  @media (max-width: 599px)
+  @media screen and (max-width: 599px)
     @content
+
 @mixin tablet-vertical
-  @media (min-width: 600px)
+  @media screen and (min-width: 600px) and (max-width: 899px)
     @content
+
+@mixin less-then-tablet-vertical
+  @media screen and (max-width: 899px)
+    @content
+
 @mixin tablet-horizontal
-  @media (min-width: 900px)
+  @media screen and (min-width: 900px) and (max-width: 1199px)
     @content
+
 @mixin desktop
-  @media (min-width: 1200px)
+  @media screen and (min-width: 1200px) and (max-width: 1699px)
     @content
+
 @mixin big-desktop
-  @media (min-width: 1800px)
+  @media screen and (min-width: 1700px)
     @content
 
 //

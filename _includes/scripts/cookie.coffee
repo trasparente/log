@@ -36,25 +36,24 @@
     return cookie
 
 {%- capture api -%}
-## Cookies
+### Cookies
 
-Cookies wrapper
+SET
+: `cookie.set(key, value, option)`{:.language-js} return cookie for chaining
+: `key` (string) cookie name
+: `value` (string/object/array) cookie value, `[]` and `{}` will remove the cookie
+: `options` (object)  
+  - `expires` (undefined/date/number/false) expiration: session/date/max-age(sec)/never
+  - `path` (string) default to root_path
 
-```coffee
-# SET: cookie.set(key, value, option) return cookie for chaining
-#   key {string} cookie name
-#   value {string/object/array} cookie value, [] and {} will remove the cookie
-#   options {object}
-#     expires {undefined/date/number/false} expiration: session/date/max-age(sec)/never
-#     path {string} default to root_path
-#
-# GET: cookie.get(key) return cookie value (string/array/object), or document.cookie if no key
-#   key {string} cookie name
-#
-# REMOVE: cookie.remove(key [, path]) return cookie object for chaining
-#   key {string/array} cookie name or array of names
-#   path {string} cookie path to remove
-```
+GET
+: `cookie.get(key)`{:.language-js} return cookie value (string/array/object), or `document.cookie` if no `key`
+: `key` (string) cookie name
 
-> Warning: Many web browsers have a session restore feature that will save all tabs and restore them the next time the browser is used. Session cookies will also be restored, as if the browser was never closed.
+REMOVE
+: `cookie.remove(key [, path])`{:.language-js} return cookie object for chaining
+: `key` (string/array) cookie name or array of names
+: `path` (string) cookie path to remove
+
+Many web browsers have a **session restore** feature that will save all tabs and restore them the next time the browser is used. **Session cookies** will also be restored, as if the browser was never closed.
 {%- endcapture -%}

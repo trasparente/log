@@ -1,13 +1,13 @@
 main
-  padding: var(--block)
+  padding: var(--block) calc(var(--icon-width) * 2)
+  @include less-then-tablet-vertical
+    padding: calc(var(--icon-width) + 1em) var(--spacing-unit)
   .wrapper
     margin: 0 auto
     max-width: 1000px
-    @include big-desktop
-      max-width: 1200px
 
     // Remove top margin for the first element
-    *:first-child
+    > *:first-child
       @extend .mtz
 
     // Rearrange H1 page title if metadata present
@@ -22,4 +22,3 @@ main
     // Images
     img
       width: 100%
-      filter: brightness(33%)

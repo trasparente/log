@@ -15,7 +15,7 @@
     <p class='logged-role'></p>
     <p class='prefers-color-scheme'>prefers-color-scheme: </p>
     <p class='screen-width'></p>
-    <p time-relative='{{ site.time | date_to_rfc822 }}'>Build: </p>
+    <p><time datetime='{{ site.time | date_to_rfc822 }}'>Build: </time></p>
     <p><a href='{% include widgets/github_url.html %}' rel='external'>Repository</a> | <a href='{% include widgets/github_url.html path=page.path %}' rel='alternate'>Page</a>
   </div>
 </div>

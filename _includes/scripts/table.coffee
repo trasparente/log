@@ -21,7 +21,7 @@ $('table').each ->
   return # End tables loop
 
 {%- capture api -%}
-## Tables
+### Tables
 
 Every `table:not(.no-search)`{:.language-css} has a searchbox injected.
 
@@ -46,5 +46,6 @@ Every `table:not(.no-search)`{:.language-css} has a searchbox injected.
 |----
 | cell1 | cell2 | cell3 |
 |====
-| Foot1 | Foot2 | Foot3
+| Foot1 | Foot2 | Foot3 |
+
 {%- endcapture -%}

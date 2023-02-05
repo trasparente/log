@@ -1,13 +1,12 @@
 nav
   margin-block: 1em
-  p
-    @extend .mz, .padding-minimal
-    > a
-      display: block
+  p, summary
+    @extend .mz
+    padding: .1em 0
+  p > a
+      @extend .display-block, .line-height-sub
   summary
     color: var(--secondary)
     @extend .uppercase, .bold
   details
     @extend .mv1
-    p
-      padding-left: .8em

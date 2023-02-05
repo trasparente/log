@@ -3,28 +3,32 @@ p
   padding-block: var(--two-third)
 dl
   dt
-    margin-top: 1em
-    @extend .bold
+    @extend .bold, .mt1
   dd
-    @extend .list-item
+    @extend .display-list-item
 
 [page-collection='posts']
-  dt
-    @extend .green-fg
   strong, em
     @extend .yellow-fg
+dl dt, h3
+  @extend .green-fg
+
+li, dd
+  &::marker
+    @extend .secondary-fg
 
 // Cursor on abbreviations
 abbr
   cursor: help
 
 // Default cursor
-p, span, code, li, small, q, cite
+p, span, code, li, small, q, cite, time
   &[title], &[cite]
     @extend .cursor-default
 
 // Super and sub scripts
 sup
+  margin-inline: .1em
   vertical-align: top
   font-size: medium
 sub
@@ -36,13 +40,3 @@ ins
   @extend .green-fg
 del
   @extend .red-fg
-
-// Footnotes
-a.footnote
-  &:before
-    content: "["
-  &:after
-    content: "]"
-.footnotes
-  @extend .font-size-80, .border-top
-  margin-top: 3em

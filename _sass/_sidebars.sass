@@ -2,6 +2,7 @@
 // BOTH SIDES COMMUN
 // --------------------------------------
 .sidebar
+  @extend .font-size, .line-height
 
   // CONTENT
   .wrapper
@@ -16,12 +17,18 @@
     transition: 0.4s
 
   // CHECKBOX HOVER AND CHECKED EFFECTS
-  [type=checkbox][id^="switch"]:checked ~ [for^="switch"] svg
-    @extend .active
+  [type=checkbox][id^="switch"]
+    @extend .mpz, .hidden
+    &:checked ~ [for^="switch"] svg
+      @extend .active
   // LABEL POSITION AND SIZE
   [for^="switch"]
-    @extend .block, .z-top, .margin-half-icon
+    width: var(--icon-width)
+    height: var(--icon-width)
+    @extend .display-block, .z-top, .margin-half-icon
     position: fixed
+    @include big-desktop
+      display: none !important
 
 // LEFT Dynamic
 .sidebar-left
@@ -31,6 +38,8 @@
     @extend .border-right
     left: calc(var(--sidebar-width)*-1)
     &:hover
+      left: 0
+    @include big-desktop
       left: 0
 
   // Reveal wrapper
@@ -51,6 +60,8 @@
     @extend .border-left
     right: calc(var(--sidebar-width)*-1)
     &:hover
+      right: 0
+    @include big-desktop
       right: 0
 
   // Reveal wrapper

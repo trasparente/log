@@ -1,157 +1,178 @@
-.highlight .err
-  color: #a61717
-  background-color: #e3d2d2
-  //* Error
-.highlight .k,
-.highlight .o
-  font-weight: bold
-  //* Keyword
-  //* Operator
-.highlight .cm,
-.highlight .c1,
-.highlight .c
-  // color: #999988
-  @extend .secondary-fg
-  font-style: italic
-  //* Comment.Multiline
-  //* Comment.Single
-  //* Comment
-.highlight .cp
-  color: #999999
-  font-weight: bold
-  //* Comment.Preproc
-.highlight .cs
-  color: #999999
-  font-weight: bold
-  font-style: italic
-  //* Comment.Special
-.highlight .gd
-  color: #000000
-  background-color: #ffdddd
-  //* Generic.Deleted
-.highlight .gd .x
-  color: #000000
-  background-color: #ffaaaa
-  //* Generic.Deleted.Specific
-.highlight .ge
-  font-style: italic
-  //* Generic.Emph
-.highlight .gi
-  color: #000000
-  background-color: #ddffdd
-  //* Generic.Inserted
-.highlight .gi .x
-  color: #000000
-  background-color: #aaffaa
-  //* Generic.Inserted.Specific
-.highlight .go
-  color: #888888
-  //* Generic.Output
-.highlight .gu
-  color: #aaaaaa
-  //* Generic.Subheading
-.highlight .gt,
-.highlight .gr
-  color: #aa0000
-  //* Generic.Traceback
-  //* Generic.Error
-.highlight .kc,
-.highlight .kd,
-.highlight .kp,
-.highlight .kr,
-.highlight .ow,
-.highlight .gs
-  font-weight: bold
-  //* Keyword.Constant
-  //* Keyword.Declaration
-  //* Keyword.Pseudo
-  //* Keyword.Reserved
-  //* Operator.Word
-  //* Generic.Strong
-.highlight .nb
-  @extend .cyan-fg
-  // color: #0086B3
-  //* Name.Builtin
-.highlight .nc,
-.highlight .kt
-  color: #445588
-  font-weight: bold
-  //* Name.Class
-  //* Keyword.Type
-.highlight .ne,
-.highlight .nf
-  color: #990000
-  font-weight: bold
-  //* Name.Exception
-  //* Name.Function
-.highlight .nn
-.highlight .gp
-  color: #555555
-  //* Name.Namespace
-  //* Generic.Prompt
-.highlight .nt
-  @extend .blue-fg
-  //* Name.Tag
-.highlight .w
-  color: #bbbbbb
-  //* Text.Whitespace
-.highlight .mf,
-.highlight .mh,
-.highlight .mi,
-.highlight .mo,
-.highlight .m
-  color: #009999
-  //* Literal.Number.Float
-  //* Literal.Number.Hex
-  //* Literal.Number.Integer
-  //* Literal.Number.Oct
-  //* Literal.Number
-.highlight .sb,
-.highlight .sc,
-.highlight .sd,
-.highlight .s2,
-.highlight .se,
-.highlight .sh,
-.highlight .si,
-.highlight .sx,
-.highlight .s,
-.highlight .s1
-  @extend .red-fg
-  //* Literal.String.Backtick
-  //* Literal.String.Char
-  //* Literal.String.Doc
-  //* Literal.String.Double
-  //* Literal.String.Escape
-  //* Literal.String.Heredoc
-  //* Literal.String.Interpol
-  //* Literal.String
-  //* Literal.String.Other
-  //* Literal.String.Single
-.highlight .sr
-  color: #009926
-  //* Literal.String.Regex
-.highlight .ss
-  color: #990073
-  //* Literal.String.Symbol
-.highlight .bp,
-.highlight .il,
-.highlight .gh
-  color: #999999
-  //* Name.Builtin.Pseudo
-  //* Literal.Number.Integer.Long
-  //* Generic.Heading
-.highlight .vc,
-.highlight .vg,
-.highlight .vi,
-.highlight .nv,
-.highlight .no,
-.highlight .ni,
-.highlight .na
-  color: #008080
-  //* Name.Constant
-  //* Name.Entity
-  //* Name.Variable
-  //* Name.Variable.Class
-  //* Name.Variable.Global
-  //* Name.Variable.Instance
-  //* Name.Attribute
+.highlight
+  .err
+    color: #a61717
+    background-color: #e3d2d2
+    //* Error
+  .k,
+  .o
+    font-weight: bold
+    //* Keyword
+    //* Operator
+  .cm,
+  .c1,
+  .c
+    // color: #999988
+    @extend .secondary-fg
+    font-style: italic
+    //* Comment.Multiline
+    //* Comment.Single
+    //* Comment
+  .cp
+    color: #999999
+    font-weight: bold
+    //* Comment.Preproc
+  .cs
+    color: #999999
+    font-weight: bold
+    font-style: italic
+    //* Comment.Special
+  .gd
+    color: #000000
+    background-color: #ffdddd
+    //* Generic.Deleted
+  .gd .x
+    color: #000000
+    background-color: #ffaaaa
+    //* Generic.Deleted.Specific
+  .ge
+    font-style: italic
+    //* Generic.Emph
+  .gi
+    color: #000000
+    background-color: #ddffdd
+    //* Generic.Inserted
+  .gi .x
+    color: #000000
+    background-color: #aaffaa
+    //* Generic.Inserted.Specific
+  .go
+    color: #888888
+    //* Generic.Output
+  .gu
+    color: #aaaaaa
+    //* Generic.Subheading
+  .gt,
+  .gr
+    color: #aa0000
+    //* Generic.Traceback
+    //* Generic.Error
+  .kc,
+  .kd,
+  .kp,
+  .kr,
+  .ow,
+  .gs
+    @extend .orange-fg
+    font-weight: bold
+    //* Keyword.Constant
+    //* Keyword.Declaration
+    //* Keyword.Pseudo
+    //* Keyword.Reserved
+    //* Operator.Word
+    //* Generic.Strong
+  .nb
+    @extend .cyan-fg
+    // color: #0086B3
+    //* Name.Builtin
+  .nc,
+  .kt
+    color: #445588
+    font-weight: bold
+    //* Name.Class
+    //* Keyword.Type
+  .ne,
+  .nf,
+  .nx
+    @extend .cyan-fg
+    // color: #990000
+    font-weight: bold
+    //* Name.Exception
+    //* Name.Function
+    //* Name.Other
+  .nn
+  .gp
+    color: #555555
+    //* Name.Namespace
+    //* Generic.Prompt
+  .nt
+    @extend .blue-fg
+    //* Name.Tag
+  .w
+    color: #bbbbbb
+    //* Text.Whitespace
+  .mf,
+  .mh,
+  .mi,
+  .mo,
+  .m
+    color: #009999
+    //* Literal.Number.Float
+    //* Literal.Number.Hex
+    //* Literal.Number.Integer
+    //* Literal.Number.Oct
+    //* Literal.Number
+  .sb,
+  .sc,
+  .sd,
+  .s2,
+  .se,
+  .sh,
+  .si,
+  .sx,
+  .s,
+  .s1
+    @extend .red-fg
+    //* Literal.String.Backtick
+    //* Literal.String.Char
+    //* Literal.String.Doc
+    //* Literal.String.Double
+    //* Literal.String.Escape
+    //* Literal.String.Heredoc
+    //* Literal.String.Interpol
+    //* Literal.String
+    //* Literal.String.Other
+    //* Literal.String.Single
+  .sr
+    color: #009926
+    //* Literal.String.Regex
+  .ss
+    color: #990073
+    //* Literal.String.Symbol
+  .p
+    @extend .fg
+    //* Punctuation
+  .bp,
+  .il,
+  .gh
+    color: #999999
+    //* Name.Builtin.Pseudo
+    //* Literal.Number.Integer.Long
+    //* Generic.Heading
+  .vc,
+  .vg,
+  .vi,
+  .nv,
+  .no,
+  .ni,
+  .na
+    color: #008080
+    //* Name.Constant
+    //* Name.Entity
+    //* Name.Variable
+    //* Name.Variable.Class
+    //* Name.Variable.Global
+    //* Name.Variable.Instance
+    //* Name.Attribute
+
+  /*
+   * Make line numbers unselectable
+   * excludes line numbers from copy-paste
+   */
+
+  .lineno
+    -webkit-user-select: none
+    -moz-user-select: none
+    -o-user-select: none
+    &::-moz-selection,
+    &::selection
+      background-color: transparent

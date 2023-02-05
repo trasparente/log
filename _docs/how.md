@@ -1,14 +1,42 @@
 ---
-tags: [how, now]
-categories: [Sugar, Kane]
+categories: Loglan
+class: font-size-sub line-height-sub
+api_widgets:
+  - widgets/github_link.html
+  - widgets/github_url.html
+  - widgets/image.html
+  - widgets/login.html
+api_scripts:
+  - scripts/table.coffee
+  - scripts/time.coffee
+  - scripts/cookie.coffee
+  - scripts/details.coffee
+  - scripts/update.coffee
 ---
 
 How
 ===
+{:.no_toc}
+- toc
+{:toc}
 
-{% include widgets/api.html include='scripts/table.coffee' %}
+Widgets
+-------
 
-## Colors and Shades
+{% include widgets/api.html %}
+{% for a in page.api_widgets %}{% include widgets/api.html include=a %}
+{% endfor %}
+
+Scripts
+-------
+
+{% for a in page.api_scripts %}{% include widgets/api.html include=a %}
+{% endfor %}
+
+Kramdown
+--------
+
+### Colors and Shades
 
 {% assign colors = 'blue,red,orange,yellow,green,fucsia,cyan' | split: ',' %}
 {% assign shades = 'secondary,faint,subtle,liminal,default' | split: ',' %}
@@ -32,29 +60,23 @@ How
   </ul>
 </div>
 
-{% include widgets/api.html include='scripts/time.coffee' %}
+### Inline elements
 
-## Inline
+```html
+**Bold** *Italic* <del>Del</del> <ins>Ins</ins> Sup<sup>sup</sup> Sub<sub>sub</sub>
+<mark>Mark</mark> <s>Strikethrough</s> <abbr title="Multi&#13;Line">Abbr[title]</abbr>
+<cite cite='citation'>Cite[cite]</cite> <q cite="citation">Quote[cite]</q>
+Footnotes[^footnote-name]
+```
 
-**Bold** *Italic* <del>~~Del</del> <ins>Ins</ins> Sup<sup>qui</sup> Sub<sub>qui</sub> <mark>Mark</mark> <s>Strikethrough</s>  
+**Bold** *Italic* <del>Del</del> <ins>Ins</ins> Sup<sup>sup</sup> Sub<sub>sub</sub> <mark>Mark</mark> <s>Strikethrough</s>  
 <abbr title="Multi&#13;Line">Abbr[title]</abbr> <cite cite='citation'>Cite[cite]</cite> <q cite="citation">Quote[cite]</q> Footnotes[^footnote-name]
 
 [^footnote-name]: If note is not present, `[^footnote-name]` is renderd.
 
-> Blockquote: As human beings we are fake entities with fake freedom.
-{:.red}
+### Code blocks
 
-> Blockquote: As human beings we are fake entities with fake freedom.
-{:cite="https://example.com"}
-
-<details open>
-  <summary>Open</summary>
-  As human beings we are fake entities with fake freedom.
-</details>
-
-Term is the first line
-: Definitions are the successive `: `{:.subtle-bg}&nbsp;lines
-: Second
-
-Other
-: Again
+- Fenced: <code class='secondary-fg'>```lang ... ```</code>
+- Liquid: `{% raw %}{%- highlight lang -%}{% endraw %} ... {% raw %}{%- endhighlight -%}{% endraw %}`{:.language-liquid}
+- Kramdown: `~~~ lang ... ~~~`
+- Indented: 4 spaces, end with `{:.language-lang}`

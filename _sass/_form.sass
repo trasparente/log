@@ -1,0 +1,53 @@
+input, select, output
+  @extend .font-size-sub, .inherit-text, .yellow-fg
+  @extend .bg, .no-appearance, .border, .rounded, .padding-minimal
+
+input
+  &:focus
+    outline: none
+    @extend .liminal-bg
+  &[type=range]
+    appearance: auto
+    vertical-align: middle
+  &[type=color]
+    vertical-align: middle
+    &::-moz-color-swatch, &::-webkit-color-swatch
+      @extend .no-border
+
+select, output
+  @extend .display-inline-block
+  line-height: calc(var(--line-height) * 1em)
+
+input, button
+  &[type=submit], &[type=reset], &[type=button]
+    @extend .padding-button, .mt1, .secondary-fg
+    &:focus
+      @extend .bg
+    &:active
+      @extend .liminal-bg
+  &[type=submit]:hover
+    @extend .green-fg
+  &[type=reset]:hover
+    @extend .red-fg
+  &[type=button]:hover
+    @extend .fg
+
+form
+  @extend .display-inline-block
+  > label
+    @extend .display-block, .mvh
+    > input
+      @extend .mhh
+    > span,
+    > sup
+      @extend .font-size-sub, .secondary-fg
+    > output + span
+      margin-left: .5em
+
+input, label, button, select
+  @extend .cursor-pointer
+
+// Override Browser placeholder opacity
+::placeholder
+  // opacity: 0.54
+  opacity: 0.8

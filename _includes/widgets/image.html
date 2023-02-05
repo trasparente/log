@@ -1,12 +1,12 @@
-<figure>
-  {% if include.url %}<a ref="_blank" href="{{ include.url }}">{% endif %}
-  <img src="{{ include.url }}" alt="{{ include.alt | default: include.url }}" />
-  {% if include.url %}</a>{% endif %}
+<figure class="{{ include.figure-class }}">
+  {% unless include.nolink %}<a ref="_blank" href="{{ include.url }}">{% endunless %}
+  <img src="{{ include.url }}" alt="{{ include.alt | default: include.url }}"{% if include.image-class %} class="{{ include.image-class }}"{% endif %}{% if include.height %} height="{{ include.height }}"{% endif %}{% if include.width %} width="{{ include.width }}"{% endif %}/>
+  {% unless include.nolink %}</a>{% endunless %}
   {% if include.caption %}<figcaption>{{ include.caption | markdownify }}</figcaption>{% endif %}
 </figure>
 
 {%- capture api -%}
-## Image
+### Image
 
 Description
 
@@ -19,4 +19,8 @@ Description
 - `url`: image URL
 - `alt`: image alternative text
 - `caption`: image caption markdown text
+- `height`: optional height to reserve space
+- `width`: optional width to reserve space
+- `image-class`: optional class list for the image
+- `nolink`: if `true` image is not clickable
 {%- endcapture -%}

@@ -9,5 +9,6 @@
 {% include scripts/login.coffee %}
 {% include scripts/details.coffee %}
 {% include scripts/table.coffee %}
+{% include scripts/form.coffee %}
 {% include scripts/pulls.coffee %}
 {% include scripts/time.coffee %}

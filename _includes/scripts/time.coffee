@@ -23,14 +23,14 @@ time =
   in_ago: (diff, string) -> if diff > 0 then "#{string} ago" else "in #{string}"
   # Given a [time-relative] element:
   # return attribute value or text content
-  get_date: (e) -> $(e).attr('time-relative') || $(e).text()
+  get_date: (e) -> $(e).attr('datetime') || Date.now()
 
   # Given a [time-classes] element:
   # Add relative class (past, future, today, tomorrow)
   classes: (e) ->
     el = $ e
     arr = []
-    d = el.attr('time-classes') || el.text()
+    d = time.get_date e
     if !Date.parse d then return
     date = new Date d
     el.removeClass 'past future today tomorrow'
@@ -86,29 +86,30 @@ time =
     return
 
 #
-# Update time classes
+# Update elements `.time-classes[datetime]` classes
+# with `.past .future .today .tomorrow`
 # --------------------------------------
-$('[time-classes]').each -> time.classes @
+$('.time-classes[datetime]').each -> time.classes @
 
 #
-# Update in/ago text (time relative
+# Append `span` with in/ago text
+# inside `time[datetime]`
 # --------------------------------------
-$('[time-relative]').each -> time.relative @
+$('time[datetime]').each -> time.relative @
 
 {%- capture api -%}
-## Time
+### Time
 
-Attribute `[time-classes]`{:.language-css} to have updated classes: `.past .future .today .tomorrow`.
+Elements `<time datetime='...'>Text</time>`{:.language-html} have injected a `<span>`{:.language-html} element with human time:  
+For past events: `x {seconds/minutes/hours/days/weeks/months/years} ago`  
+For future events: `in x {seconds/minutes/hours/days/weeks/months/years}`
 
-Attribute `[time-relative]`{:.language-css} append a `<span>`{:.language-html} element with human time:  
-For past events `x {seconds/minutes/hours/days/weeks/months/year} ago`  
-For futre evnts: `in x {seconds/minutes/hours/days/weeks/months/year}`
+Elements `<time class='time-classes' datetime='...'>Text</time>`{:.language-html} have updated classes: `.past .future .today .tomorrow`.
 
-Reference date is passed as the attribute value, or as the text content.
+Reference date is passed with `datetime` attribute value, or as the text content.
 
 ```html
-<p time-classes='{% raw %}{{ site.time | date_to_rfc822 }}{% endraw %}'
-  time-relative='{% raw %}{{ site.time | date_to_rfc822 }}{% endraw %}'>Event </p>
+<time class='time-classes' datetime='{% raw %}{{ site.time | date_to_rfc822 }}{% endraw %}'>Event </time>
 ```
-<p time-classes='{{ site.time | date_to_rfc822 }}' time-relative='{{ site.time | date_to_rfc822 }}'>Event </p>
+<time class='time-classes' datetime='{{ site.time | date_to_rfc822 }}'>Event </time>
 {%- endcapture -%}

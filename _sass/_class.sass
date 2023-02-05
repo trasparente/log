@@ -6,6 +6,10 @@
 
 .line-height
   line-height: var(--line-height)
+.line-height-sub
+  line-height: var(--line-height-sub)
+.line-height-one
+  line-height: 1em
 
 // ALIGN
 .center
@@ -20,21 +24,21 @@
 .float-right
   float: right
 
-.font-mono
-  font-family: var(--font-mono)
-.font-sans
-  font-family: var(--font-sans)
-.font-eurostile
-  font-family: var(--font-eurostile)
+@each $class, $string in $font-families
+  .font-family-#{$class}
+    font-family: #{$string}, #{$class}
 
 .font-size
   font-size: var(--font-size)
-.font-size-90
-  font-size: 91%
-.font-size-80
-  font-size: 80%
-.font-size-75
-  font-size: 75%
+.font-size-sub
+  font-size: var(--font-size-sub)
+.font-size-min
+  font-size: var(--font-size-min)
+.font-size-h3
+  font-size: 1.17em
+@each $percent in (90, 80, 75)
+  .font-size-#{$percent}
+    font-size: #{$percent * 1%}
 
 .bold
   font-weight: bold
@@ -53,8 +57,12 @@
   margin-bottom: 0
 .mvz
   margin-block: 0
+.mhh
+  margin-inline: .5em
 .mh23
   margin: 0 var(--two-third)
+.mvh
+  margin-block: .5em
 .mv1
   margin-block: 1em
 .mt1
@@ -97,29 +105,28 @@
   max-width: 30%
 
 // DISPLAY
-.block
-  display: block
-.initial
-  display: initial
-.inline
-  display: inline
-.inline-block
-  display: inline-block
-.list-item
-  display: list-item
-.inline-list-item
-  display: inline list-item
+@each $display in ('block', 'initial', 'inline', 'inline-block', 'list-item', 'inline-list-item')
+  .display-#{$display}
+    display: #{$display}
+
 //
 // FLEX AND GRID
 // --------------------------------------
 .flex
   display: flex
+  &:not(.flex-wrap)
+    @include less-then-tablet-vertical
+      flex-wrap: wrap
 .flex-wrap
   flex-wrap: wrap
 .space-between
   justify-content: space-between
 .space-around
   justify-content: space-around
+.space-variable
+  justify-content: space-around
+  @include less-then-tablet-vertical
+    justify-content: space-between
 .gap-1
   gap: 1em
 .grid
@@ -143,31 +150,32 @@
 // BORDER
 .no-border
   border-width: 0
+@each $side in ('top', 'right', 'bottom', 'left')
+  .border-#{$side}
+    border-#{$side}: 1px solid var(--subtle)
 .border
-  @extend .border-top, .border-bottom, .border-left, .border-right
-.border-bottom
-  border-bottom: 1px solid var(--subtle)
-.border-top
-  border-top: 1px solid var(--subtle)
-.border-right
-  border-right: 1px solid var(--subtle)
-.border-left
-  border-left: 1px solid var(--subtle)
-.rounded-big
-  border-radius: .5em
+  @extend .border-top, .border-right, .border-bottom, .border-left
 .rounded
   border-radius: .25em
+.rounded-big
+  border-radius: .5em
+
+// IMAGES FILTERS AND BLENDS
+.filter-brightness-33
+  filter: brightness(33%)
+.mix-blend-color-dodge
+  mix-blend-mode: color-dodge
+.mix-blend-lighten
+  mix-blend-mode: lighten
 
 // CURSOR
-html
-  .cursor-pointer
-    cursor: pointer
-  .cursor-default
-    cursor: default
-  &.ajax
+@each $cursor in ('pointer', 'default')
+  .cursor-#{$cursor}
+    cursor: #{$cursor}
+html.ajax
+  cursor: wait
+  a, .cursor-pointer, .cursor-default
     cursor: wait
-    a, .cursor-pointer, .cursor-default
-      cursor: wait
 
 // BLINK
 .blink

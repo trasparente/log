@@ -38,25 +38,30 @@ Tagged: {% for t in tags %}<a href='?tagged={{ t }}' rel='search' title='Search 
 <a href='{{ page.url | absolute_url }}'>Reset filters</a>
 </div>
 ---
-{:.mtz}
-<h3 class='mv1'>PAGES</h3>
-<ul>
-  <li class='only-visible-child'>Nothing found</li>
-{% for p in site.html_pages %}
-{% unless p.path contains 'assets/pages/' %}
-<li search-authored="{{ p.author }}" search-categorized='{{ p.categories | join: "," }}' search-tagged='{{ p.tags | join: "," }}' search-published='{{ p.date | date_to_string | split: " " | slice: 1, 2 | join: " " }}'><a href="{{ p.url | absolute_url }}">{{ p.title }}</a>{% include widgets/metadata.html page=p %}</li>{%- endunless %}{% endfor %}
-</ul>
-
-{% for c in site.collections %}
+<div class="">
+{% for c in site.collections reversed %}
 {% unless c.docs.size == 0 %}
-<h3>{{ c.title | default: c.label | upcase }}</h3>
-<ul>
-  <li class='only-visible-child'>Nothing found</li>
-{% for d in c.docs reversed %}<li search-authored="{{ d.author }}" search-categorized='{{ d.categories | join: "," }}' search-tagged='{{ d.tags | join: "," }}' search-published='{{ d.date | date_to_string | split: " " | slice: 1, 2 | join: " " }}'><a href="{{ d.url | absolute_url }}">{{ d.title }}</a>{% include widgets/metadata.html page=d %}</li>{% endfor %}{% endunless %}</ul>
+  <div>
+  <h3>{{ c.title | default: c.label | upcase }}</h3>
+  <ul>
+    <li class='only-visible-child'>Nothing found</li>
+  {% for d in c.docs reversed %}<li search-authored="{{ d.author }}" search-categorized='{{ d.categories | join: "," }}' search-tagged='{{ d.tags | join: "," }}' search-published='{{ d.date | date_to_string | split: " " | slice: 1, 2 | join: " " }}'><a href="{{ d.url | absolute_url }}">{{ d.title }}</a></li>{% endfor %}{% endunless %}</ul>
+  </div>
 {% endfor %}
 
+  <div>
+    <h3>PAGES</h3>
+    <ul>
+      <li class='only-visible-child'>Nothing found</li>
+    {% for p in site.html_pages %}
+    {% unless p.path contains 'assets/pages/' %}
+    <li search-authored="{{ p.author }}" search-categorized='{{ p.categories | join: "," }}' search-tagged='{{ p.tags | join: "," }}' search-published='{{ p.date | date_to_string | split: " " | slice: 1, 2 | join: " " }}'><a href="{{ p.url | absolute_url }}">{{ p.title }}</a></li>{%- endunless %}{% endfor %}
+    </ul>
+  </div>
+</div>
+
 {%- capture api -%}
-## Archive
+### Archive
 
 Filter all pages `site.html_pages` and `site.documents`, by date `Mmm YYYY`, author, tags and categories.
 {%- endcapture -%}

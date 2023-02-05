@@ -1,12 +1,22 @@
+// [rel*='search, next, prev, external, author']
 a, .link
   @extend .link-fg
   text-decoration: none
+
   &:hover
     text-decoration: underline
   &:active, &.active
     color: var(--fg)
-  // [rel*='search, next, prev, external, author']
+
+  // Footnotes
+  &.footnote
+    &:before
+      content: "["
+    &:after
+      content: "]"
 
 main
-  label[for^='switch'], select[for^='switch']
-    @extend .link, .font-size-90
+  a, .link
+    text-decoration: underline
+    &:hover
+      text-decoration: none

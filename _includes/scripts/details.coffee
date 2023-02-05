@@ -27,8 +27,11 @@ $('details').each ->
   return # End DETAILS loop
 
 {%- capture api -%}
-## Details
+### Details
 
-Cookie-save and reinstate the state of the DETAIL elements (open/close) in every page. Sidebar details are page-agnostic.
+<details markdown=1>
+<summary>Open</summary>
+Cookie-save and reinstate the state of the `<details>`{:.language-html} elements (open/close) in every page. Sidebar details are page-agnostic.
+</details>
 
 {%- endcapture -%}

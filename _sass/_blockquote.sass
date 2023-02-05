@@ -1,5 +1,5 @@
 blockquote
-  @extend .liminal-bg, .padding-box
+  @extend .liminal-bg, .padding-box, .font-family-serif
   *:first-child
     @extend .mtz, .ptz
   *:last-child
@@ -11,4 +11,4 @@ blockquote
   &[cite]::after
     content: attr(cite)
     font-style: italic
-    @extend .secondary-fg, .block, .font-size-90, .right
+    @extend .secondary-fg, .display-block, .font-size-90, .right

@@ -77,9 +77,9 @@ check_builds = ->
   return # End updates
 
 {%- capture api -%}
-## Updates
+### Update
 
-Updates are checked every minute, only if _rate limit_ is more than 25.
+Updates are checked every minute, only if `rate_limit` is more than 25.
 
 Compare Jekyll `site.time` with GitHub latest built `created_at` (or latest commit `author.date` if user is not admin). If they are different and the browser tab is blurred, refresh the page with a search string like `?latest=YYYY-MM-DDTHH:MM:SSZ&sha=xxxxxxx`.  
 

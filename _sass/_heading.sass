@@ -1,11 +1,10 @@
 @for $index from 1 through length($headings-margins)
   $margin: nth($headings-margins, $index)
-  h#{$index}
+  h#{$index}, .h#{$index}
+    @extend .font-family-serif
     margin-top: #{$margin*2.5}em
     margin-bottom: #{$margin}em
     padding-inline: 1rem
 
 h1
-  @extend .border-bottom, .font-eurostile
-  text-transform: uppercase
-  font-size: 2.2em
+  @extend .border-bottom

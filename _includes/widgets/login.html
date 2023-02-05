@@ -1,8 +1,8 @@
 <p><a href='#login' class='unlogged prevent' title="Click to login">Login</a><a href='#logout' class='logged prevent' title="Click to logout">Logout</a></p>
 {%- capture api -%}
-## Login
+### Login
 
-Render two links with `href="#login"` and `href="#logout"`. Needs the [login]({{ 'docs/scripts/#login' | absolute_url }}) script.
+Render two links with `href="#login"` and `href="#logout"`. Needs the [login script]({% include widgets/github_url.html path='_includes/scripts/login.coffee' %}).
 
 ```liquid
 {% raw %}{% include widgets/login.html %}{% endraw %}
