@@ -6,9 +6,6 @@
     --fg:        hsl(0, 0%, 80%)
     @each $shade, $lightness in $base-lightness
       --#{$shade}: #{hsl(0, 0%, $lightness)}
-    // Inverse
-    --bg-inverse: hsl(0, 0%, 97%)
-    --fg-inverse: hsl(0, 0%, 17%)
     // Base colors
     // --{name}:    saturation=40% lightness=-5%
     // --{name}-bg: saturation=45% lightness=25%
@@ -16,7 +13,7 @@
       $h: hue($c)
       $l: lightness($c)-5%
       --#{$name}: #{hsl($h, saturation($c), lightness($c))}
-      --#{$name}-fg: #{hsl($h, 55%, 45%)}
+      --#{$name}-fg: #{hsl($h, 45%, 50%)}
       --#{$name}-bg: #{hsl($h, 50%, 20%)}
       @each $shade, $lightness in $base-lightness
         --#{$name}-#{$shade}-bg: #{hsl($h, 50%, $lightness)}
@@ -26,16 +23,13 @@
     --fg:        hsl(0, 0%, 17%)
     @each $shade, $lightness in $base-lightness
       --#{$shade}: #{hsl(0, 0%, (100%-$lightness))}
-    // Inverse
-    --bg-inverse: hsl(0, 0%, 3%)
-    --fg-inverse: hsl(0, 0%, 80%)
     // Base colors
     // --{name}:    saturation=55% lightness=40%
     // --{name}-bg: saturation=55% lightness=65%
     @each $name, $c in $base-colors
       $h: hue($c)
       --#{$name}: #{hsl($h, saturation($c), lightness($c))}
-      --#{$name}-fg: #{hsl($h, 65%, 38%)}
+      --#{$name}-fg: #{hsl($h, 65%, 34%)}
       --#{$name}-bg: #{hsl($h, 55%, 65%)}
       @each $shade, $lightness in $base-lightness
         --#{$name}-#{$shade}-bg: #{hsl($h, 55%, (100%-$lightness))}

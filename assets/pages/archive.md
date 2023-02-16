@@ -35,14 +35,14 @@ Categorized: {% for c in cats %}<a href='?categorized={{ c }}' rel='search' titl
 
 Tagged: {% for t in tags %}<a href='?tagged={{ t }}' rel='search' title='Search tag'>{{ t }}</a>{% assign cond = 'item.name contains "' | append: t | append: '"' %}{% capture how_many %}{{ tags_group | where_exp: 'item', cond | size }}{% endcapture %}{% assign how_many = how_many | plus: 0 %}{% if how_many > 1 %}<sup>{{ how_many }}</sup>{% endif %}{% unless forloop.last %},&nbsp;{% endunless %}{% endfor %}
 
-<a href='{{ page.url | absolute_url }}'>Reset filters</a>
+<a href='{{ page.url | absolute_url }}' class='green-fg'>Reset filters</a>
 </div>
 ---
-<div class="">
+<div>
 {% for c in site.collections reversed %}
 {% unless c.docs.size == 0 %}
   <div>
-  <h3>{{ c.title | default: c.label | upcase }}</h3>
+  <h3 class='mt1'>{{ c.title | default: c.label | upcase }}</h3>
   <ul>
     <li class='only-visible-child'>Nothing found</li>
   {% for d in c.docs reversed %}<li search-authored="{{ d.author }}" search-categorized='{{ d.categories | join: "," }}' search-tagged='{{ d.tags | join: "," }}' search-published='{{ d.date | date_to_string | split: " " | slice: 1, 2 | join: " " }}'><a href="{{ d.url | absolute_url }}">{{ d.title }}</a></li>{% endfor %}{% endunless %}</ul>

@@ -1,0 +1,9 @@
+shape_lands:
+  name: Shape land
+  points: [3,5,8]
+shape_climate:
+  name: Shape climate
+  points: [2,4,6]
+create_race:
+  name: Create race
+  points: [22,6,15]

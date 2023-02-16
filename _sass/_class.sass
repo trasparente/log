@@ -40,6 +40,11 @@
   .font-size-#{$percent}
     font-size: #{$percent * 1%}
 
+.compact
+  @extend .font-size-sub, .line-height-sub
+  p
+    padding-block: .25em
+
 .bold
   font-weight: bold
 .uppercase
@@ -85,6 +90,8 @@
   padding-top: 0
 .pbz
   padding-bottom: 0
+.pvh
+  padding-block: .5em
 .padding-unit
   padding: var(--spacing-unit)
 .padding-minimal
@@ -165,8 +172,8 @@
   filter: brightness(33%)
 .mix-blend-color-dodge
   mix-blend-mode: color-dodge
-.mix-blend-lighten
-  mix-blend-mode: lighten
+.mix-blend-difference
+  mix-blend-mode: difference
 
 // CURSOR
 @each $cursor in ('pointer', 'default')
@@ -174,6 +181,9 @@
     cursor: #{$cursor}
 html.ajax
   cursor: wait
+  main
+    pointer-events: none
+    filter: saturate(0%)
   a, .cursor-pointer, .cursor-default
     cursor: wait
 

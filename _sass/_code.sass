@@ -3,7 +3,7 @@ tt, code, kbd, samp
 
 // INLINE
 code.highlighter-rouge
-  @extend .cyan-fg, .rounded, .highlight
+  @extend .forest-fg, .rounded, .highlight
   letter-spacing: -1px
 
 // BLOCKS
@@ -12,11 +12,11 @@ code.highlighter-rouge
 // liquid:
 // figure.highlight > pre > code
 .highlight pre
-  line-height: 95%
+  line-height: 1.1
   overflow: auto
   @extend .padding-box, .rounded, .liminal-bg
   code
-    @extend .font-size-75
+    @extend .font-size-80, .secondary-fg
 
 //   // Fix for mobile
 //   white-space: pre-wrap

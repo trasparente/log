@@ -8,7 +8,7 @@ source: https://www.newstatesman.com/spotlight/cost-of-living-crisis/2023/01/sta
 Universal Public Services
 =========================
 
-{% include widgets/image.html caption='Climate change is already impacting energy production' image-class='filter-brightness-33' figure-class='mt1 caption-top-left' url='https://i.imgur.com/aQN74zd.jpg' %}
+{% include widgets/image.html caption='Climate change is already impacting energy production' figure-class='mt1 caption-top-left' url='https://i.imgur.com/aQN74zd.jpg' %}
 
 Crisis
 : Recently even prominent mainstream economists have realised that inflation is, in essence, a distributional conflict.

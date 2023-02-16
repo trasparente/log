@@ -8,7 +8,16 @@
 
 .inverse
   @include colors('light')
-
+.light-fg
+  color: var(--fg)
+.dark-fg
+  @extend .inverse
+  color: var(--fg)
+.dark-bg
+  background-color: var(--bg)
+.light-bg
+  @extend .inverse
+  background-color: var(--bg)
 //
 // LIGHT MODE
 // --------------------------------------

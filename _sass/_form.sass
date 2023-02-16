@@ -1,11 +1,11 @@
 input, select, output
   @extend .font-size-sub, .inherit-text, .yellow-fg
-  @extend .bg, .no-appearance, .border, .rounded, .padding-minimal
+  @extend .liminal-bg, .no-appearance, .border, .rounded, .padding-minimal
 
 input
   &:focus
     outline: none
-    @extend .liminal-bg
+    @extend .bg
   &[type=range]
     appearance: auto
     vertical-align: middle
@@ -16,11 +16,10 @@ input
 
 select, output
   @extend .display-inline-block
-  line-height: calc(var(--line-height) * 1em)
 
 input, button
   &[type=submit], &[type=reset], &[type=button]
-    @extend .padding-button, .mt1, .secondary-fg
+    @extend .padding-button, .secondary-fg, .bg
     &:focus
       @extend .bg
     &:active
@@ -34,8 +33,12 @@ input, button
 
 form
   @extend .display-inline-block
-  > label
-    @extend .display-block, .mvh
+  h3:first-child
+    margin-top: .5em
+  .buttons
+    margin: .7em
+  label, .label
+    @extend .display-block, .padding-box
     > input
       @extend .mhh
     > span,

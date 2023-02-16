@@ -17,6 +17,7 @@ a, .link
 
 main
   a, .link
-    text-decoration: underline
-    &:hover
-      text-decoration: none
+    &:not(.footnote):not(.reversefootnote):not(.prevent)
+      text-decoration: underline
+      &:hover
+        text-decoration: none

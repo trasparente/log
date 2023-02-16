@@ -1,0 +1,11 @@
+{% for p in include.object %}
+<details>
+<summary>{{ p[1].title | default: p[0] }}</summary>
+{% assign main = 'title,description' | split: ',' %}
+{% for m in main %}
+<label>{{ m | capitalize }}
+<input type='text' name='items[properties][{{ p[0] }}][{{ m }}]' id='items[properties][{{ p[0] }}][{{ m }}]' value='{{ p[1][m] }}'>
+</label>
+{% endfor %}
+</details>
+{% endfor %}

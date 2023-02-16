@@ -7,7 +7,7 @@ tags: Agent
 Conscious Universe
 ==================
 
-![Conscious Universe](https://i.imgur.com/7v1UFtZ.png){:.mix-blend-color-dodge}
+![Conscious Universe](https://i.imgur.com/7v1UFtZ.png){:.mix-blend-difference}
 
 > We are all but aspects of one single mind that forms the essence of reality, like the light refracts the colors.
 {:cite='Erwin Schrödinger'}

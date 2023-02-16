@@ -1,0 +1,40 @@
+{% assign file = include.file | append: 'schema' %}
+{% assign data = site.data[file] %}
+<form class='prevent schema liminal-bg rounded'{% if data %} data-file='{{ data | jsonify | smartify }}'{% endif %}>
+  <h3 markdown='1'>Schema{% if include.file %} ```{{ include.file }}```{% endif %}</h3>
+  <label>id
+  <input type='text' name='id' id='id' required value='{{ data.id }}'>
+  <span markdown='1'>[ folder/ ] filename</span></label>
+
+  <!-- ANNOTATIONS -->
+  <label>
+    Title
+    <input type='text' autocomplete='off' name='title' id='title' value='{{ data.title }}'>
+  </label>
+  <label>
+    Description
+    <input type='text' autocomplete='off' name='description' id='description' value='{{ data.description }}'>
+  </label>
+  <label>
+    Type
+    <select name='type' id='type'>
+      <option value='array'{% if data.type == 'array' %} selected{% endif %}>Array</option>
+      <option value='object'{% if data.type == 'object' %} selected{% endif %}>Object</option>
+    </select>
+  </label>
+
+  <!-- SCHEMA-TYPE -->
+  <div>
+{% if data.type == 'array' and data.items.properties %}
+<input type='hidden' name='items[type]' id='items[type]' value='object'>
+{% include widgets/forms/properties.html object=data.items.properties %}
+{% endif %}
+{% if data.type == 'object' and data.properties %}
+{% include widgets/forms/properties.html object=data.properties %}
+{% endif %}
+<span class='label' markdown='1'>[Add new property](#add-property){:.prevent}</span>
+  </div>
+
+  <!-- BUTTONS -->
+  {% include widgets/forms/buttons.html %}
+</form>

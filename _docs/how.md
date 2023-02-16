@@ -1,6 +1,6 @@
 ---
 categories: Loglan
-class: font-size-sub line-height-sub
+class: compact
 api_widgets:
   - widgets/github_link.html
   - widgets/github_url.html
@@ -23,6 +23,8 @@ How
 Widgets
 -------
 
+{% include widgets/forms/schema.html file='practices'%}
+
 {% include widgets/api.html %}
 {% for a in page.api_widgets %}{% include widgets/api.html include=a %}
 {% endfor %}
@@ -38,7 +40,7 @@ Kramdown
 
 ### Colors and Shades
 
-{% assign colors = 'blue,red,orange,yellow,green,fucsia,cyan' | split: ',' %}
+{% assign colors = 'red,orange,yellow,forest,green,cyan,blue,violet,fucsia' | split: ',' %}
 {% assign shades = 'secondary,faint,subtle,liminal,default' | split: ',' %}
 {% assign sub_shades = 'faint,subtle,liminal' | split: ',' %}
 <div class="flex flex-wrap">
@@ -80,3 +82,13 @@ Footnotes[^footnote-name]
 - Liquid: `{% raw %}{%- highlight lang -%}{% endraw %} ... {% raw %}{%- endhighlight -%}{% endraw %}`{:.language-liquid}
 - Kramdown: `~~~ lang ... ~~~`
 - Indented: 4 spaces, end with `{:.language-lang}`
+
+### Forms
+
+{% assign input = 'text,date,number,color,email,range' | split: ',' %}
+<form class='prevent'>
+  {% for i in input %}<label>{{ i | capitalize }}:<input required type="{{ i }}" name="{{ i }}" id="{{ i }}">{% if i == 'range' %}<output></output>{% endif %}<span>Description for {{ i }}</span></label>
+  {% endfor %}
+  <label>Select: <select><option hidden disabled selected value></option>{% for i in input %}<option value="{{ i }}">{{ i }}</option>{% endfor %}</select></label>
+  {% include widgets/forms/buttons.html %}
+</form>

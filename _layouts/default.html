@@ -21,6 +21,7 @@
     <div class='wrapper'>
       {%- if page.metadata -%}<h1 id='{{ page.title | slugify }}'>{{ page.title }}</h1>{% include widgets/metadata.html %}{%- endif -%}
       {{ content }}
+      {%- if page.suggestion -%}{% include widgets/suggestion.html %}{%- endif -%}
       {%- if page.pagination -%}{% include widgets/pagination.html %}{%- endif -%}
     </div>
   </main>

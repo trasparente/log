@@ -8,7 +8,7 @@ source: https://www.youtube.com/watch?v=Ecy4WLXjZuc
 Holy Lazyness
 =============
 
-![Bubbleverse](https://i.imgur.com/ykKDyDS.png){:.filter-brightness-33.mix-blend-lighten}
+![Bubbleverse](https://i.imgur.com/ykKDyDS.png){:.mix-blend-lighten}
 
 > The very concept of non-existence carries with itself its own annihilation.
 

@@ -14,5 +14,5 @@ categories: Cosmeg
 > Between one and the infinite in cases such as these, there are no sensible numbers. Not only two, but any finite number, is ridiculous and can't exist.
 </div>
 <div markdown='1'>
-{% include widgets/image.html url='https://i.imgur.com/QRVgKZu.jpg' caption='Published in 1972, a tale of Cosmegs.' image-class='filter-brightness-33'%}</div>
+{% include widgets/image.html url='https://i.imgur.com/QRVgKZu.jpg' caption='Published in 1972, a tale of Cosmegs.' %}</div>
 </div>

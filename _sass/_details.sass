@@ -9,8 +9,9 @@ details summary
     content: ""
 
 // Only main > details
-main details
-  @extend .margin-box
+main
+  details
+    @extend .margin-box
   summary
     &::-webkit-details-marker, &::marker
       color: var(--link)
@@ -19,3 +20,9 @@ main details
       color: var(--fg)
     &:active
       color: var(--link)
+  // FORMS Override
+  form
+    details
+      @extend .mz, .padding-box
+      &[open]
+        @extend .subtle-bg
