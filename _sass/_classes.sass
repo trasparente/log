@@ -1,0 +1,77 @@
+@mixin scheme-light
+  @media (prefers-color-scheme: light)
+    @content
+
+//
+// COLORS
+// --------------------------------------
+@each $color in ('blue','white')
+  .color--#{$color}
+    color: var(--color-#{$color})
+  .color--#{$color}-muted
+    color: var(--color-#{$color}-muted)
+  .background-color--#{$color}
+    background-color: var(--color-#{$color})
+  .background-color--#{$color}-muted
+    background-color: var(--color-#{$color}-muted)
+
+//
+// DISPLAY
+// --------------------------------------
+
+@each $display in ('block','flex','inline','none')
+  .display--#{$display}
+    display: #{$display}
+
+// FLEX WRAP
+@each $wrap in ('wrap')
+  .flex-wrap--#{$wrap}
+    flex-wrap: #{$wrap}
+
+// JUSTIFY CONTENT
+@each $justify in ('space-between','space-around')
+  .justify-content--#{$justify}
+    justify-content: #{$justify}
+.justify-content--space-variable
+  justify-content: space-around
+  @include less-then-tablet-vertical
+    justify-content: space-between
+
+// POSITION
+@each $position in ('relative','absolute','fixed')
+  .position--#{$position}
+    position: #{$position}
+
+//
+// TYPOGRAPHY
+// --------------------------------------
+
+// WORD WRAP
+@each $wrap in ('break-word')
+  .word-wrap--#{$wrap}
+    word-wrap: #{$wrap}
+
+// WHITE SPACE
+@each $space in ('nowrap')
+  .white-space--#{$space}
+    white-space: #{$space}
+
+// LIST STYLE
+@each $style in ('none')
+  .list-style--#{$style}
+    list-style: #{$style}
+
+// GAPs
+@each $gap in (5,10,20,50)
+  .gap--#{$gap}
+    gap: #{$gap}px
+
+// CURSOR
+@each $cursor in ('pointer','default')
+  .cursor--#{$cursor}
+    cursor: #{$cursor}
+
+// Z INDEX
+@each $scale in (0,1,10,100)
+  .z-index--#{$scale}
+    z-index: #{$scale}

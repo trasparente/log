@@ -1,0 +1,51 @@
+body
+  @extend .bg, .fg, .font-size, .line-height, .font-family-sans-serif, .mpz
+  @include less-then-tablet-vertical
+    font-size: 20px !important
+
+// Table Of Contents list
+ul#markdown-toc
+  @extend .flex, .space-variable, .gap-1, .list-style-none
+  li
+    list-style: decimal
+    li
+      list-style-type: initial
+
+// Log box
+.log
+  @extend .font-size-min, .line-height-sub, .secondary-fg
+  > span
+    margin-left: var(--two-third)
+    @include less-then-tablet-vertical
+      &:first-child
+        margin-left: 0
+  p
+    @extend .mpz
+
+.footnotes
+  @extend .font-size-min, .line-height-sub, .border-top
+  margin-top: var(--block)
+  ol, li, p
+    @extend .mz
+
+// Pagination
+.pagination
+  @extend .font-size-min, .line-height-sub, .secondary-fg, .padding-unit
+  @extend .flex, .space-between, .border-top
+  margin-top: var(--block)
+
+// Figure
+figure
+  @extend .mz
+  figcaption
+    > p:only-child
+      @extend .mpz
+  &.caption-top-left
+    position: relative
+    figcaption
+      @extend .margin-box
+      position: absolute
+      top: 0
+      left: 0
+  &:not(.caption-top-left) figcaption
+    @extend .font-size-75, .secondary-fg

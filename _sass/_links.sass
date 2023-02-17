@@ -1,0 +1,14 @@
+a
+  color: var(--color-accent)
+  text-decoration: none
+  &:hover
+    text-decoration: underline
+  &:active, &.active
+    @extend .color--white
+
+  // Footnotes
+  &.footnote
+    &:before
+      content: "["
+    &:after
+      content: "]"

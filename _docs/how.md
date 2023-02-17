@@ -6,6 +6,7 @@ api_widgets:
   - widgets/github_url.html
   - widgets/image.html
   - widgets/login.html
+  - page/favicon.html
 api_scripts:
   - scripts/table.coffee
   - scripts/time.coffee

@@ -1,9 +1,26 @@
+# Open details on hover for NAV
+$('nav .wrapper > details, nav .wrapper > a').each ->
+  item = $(@)
+  item.hover ->
+    # close sibilings
+    item.siblings('details').each -> $(@)[0].open = false
+    if item.prop('tagName') is 'DETAILS' then item[0].open = true
+    return
+  return
+
+# Close navigation details when on main
+$('main').hover -> $('nav .wrapper > details').each ->
+  $(@)[0].open = false
+  return
+
+# Save and Load states from cookie
 $('details').each ->
 
   # Prepare
   detail = $ @
   states = cookie.get('states') || []
   summary = detail.find 'summary'
+  # filter page-agnostic details
   title = if detail.parents('aside.sidebar').length then 'details' else body.attr 'page-title'
   id = "#{title}|#{$.trim summary.text()}"
 

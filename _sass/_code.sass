@@ -1,24 +1,5 @@
-tt, code, kbd, samp
-  @extend .font-family-monospace
-
-// INLINE
-code.highlighter-rouge
-  @extend .forest-fg, .rounded, .highlight
-  letter-spacing: -1px
-
-// BLOCKS
-// Fenced, kramdown, indented:
-// div.highlighter-rouge > div.highlight > pre.highlight > code
-// liquid:
-// figure.highlight > pre > code
-.highlight pre
-  line-height: 1.1
-  overflow: auto
-  @extend .padding-box, .rounded, .liminal-bg
-  code
-    @extend .font-size-80, .secondary-fg
-
-//   // Fix for mobile
-//   white-space: pre-wrap
-//   word-wrap: break-word
-//   overflow: auto
+code
+  @extend .color--white-muted
+  font-family: var(--font-family-mono)
+  font-size: 18px
+  padding: 0px 3px

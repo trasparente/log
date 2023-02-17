@@ -1,0 +1,17 @@
+// Table Of Contents list
+ul#markdown-toc
+  @extend .display--flex, .gap--50, .list-style--none, .flex-wrap--wrap
+  counter-reset: item
+  > li
+    counter-increment: item
+    &:before
+      content: counter(item) '.'
+      margin-right: 0.5em
+    > ul
+      @extend .list-style--none
+      counter-reset: subitem
+      > li
+        counter-increment: subitem
+        &:before
+          content: counter(item) '.' counter(subitem)
+          margin-right: 0.5em

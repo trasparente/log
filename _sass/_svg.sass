@@ -1,26 +1,32 @@
 svg[class^=icon]
-  @extend .link-fg
+  stroke: var(--color-accent)
   width: var(--icon-width)
   height: var(--icon-width)
   use
     &:first-of-type
-      @extend .display-inline
+      @extend .display--inline
     &:last-of-type
-      @extend .hidden
+      @extend .display--none
   &:hover use
     &:first-of-type
-      @extend .hidden
+      @extend .display--none
     &:last-of-type
-      @extend .display-inline
+      @extend .display--inline
   &:active, &.active
-    @extend .fg
+    stroke: var(--color-fg)
   &.icon-to-top
-    @extend .display-block, .z-top, .margin-half-icon, .cursor-pointer
+    @extend .display--block, .z-index--10, .cursor--pointer
+    margin: var(--icon-width)
     opacity: 0
     position: fixed
     transition: opacity 0.4s
     bottom: 0
     right: 0
+
+a[href='#top']
+  width: var(--icon-width)
+  height: var(--icon-width)
+  @extend .display--block
 
 //
 // SHOW TO-TOP ARROW when scrolled 1 viewport
@@ -31,10 +37,10 @@ html.scrolled svg.icon-to-top
 //
 // ROTATION of GEAR icon when ajax request
 // --------------------------------------
-html.ajax svg.icon-gear
-  animation: rotate 3s linear infinite
-@keyframes rotate
-  0%
-    transform: rotate(0deg)
-  100%
-    transform: rotate(360deg)
+// html.ajax svg.icon-gear
+//   animation: rotate 3s linear infinite
+// @keyframes rotate
+//   0%
+//     transform: rotate(0deg)
+//   100%
+//     transform: rotate(360deg)

@@ -1,12 +1,24 @@
 nav
-  margin-block: 1em
-  p, summary
-    @extend .mz
-    padding: .1em 0
-  p > a
-      @extend .display-block, .line-height-sub
-  summary
-    color: var(--secondary)
-    @extend .uppercase, .bold
-  details
-    @extend .mv1
+  padding: 1em 1.5em
+  .wrapper
+    @extend .display--flex
+    a, details
+      @extend .display--block, .white-space--nowrap
+      &:not(:first-child), & a
+        padding-left: 0.7em
+      &:not(:last-child), & a
+        padding-right: 0.7em
+    details
+      @extend .cursor--default, .position--relative
+      > div
+        line-height: 1.7
+        border-radius: 3px
+        @extend .background-color--blue-muted, .position--absolute
+        top: 2.5em
+        left: 0
+      summary
+        pointer-events: none
+        // Remove marker
+        @extend .display--block, .color--white-muted
+        &.active
+          @extend .color--white
