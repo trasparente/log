@@ -1,6 +1,6 @@
 {% assign archive = 'archive' | absolute_url %}
 {% assign meta = include.page | default: page %}
-<div class="log">
+<div class="metadata">
   {%- if meta.author -%}
     <span>Authored: <a href='{{ archive }}?authored={{ meta.author }}' rel='search' title='Search author'>{{ meta.author }}</a></span>
   {%- endif -%}

@@ -1,24 +1,39 @@
 nav
-  padding: 1em 1.5em
+  @extend .padding-body-elements, .font-size--percent-big
   .wrapper
-    @extend .display--flex
+    @extend .display--grid
+    grid-template-columns: 1fr 1fr
+    @include less-then-tablet-vertical
+      grid-template-columns: 1fr
     a, details
-      @extend .display--block, .white-space--nowrap
-      &:not(:first-child), & a
-        padding-left: 0.7em
-      &:not(:last-child), & a
-        padding-right: 0.7em
+      @extend .display--block
+      padding-inline: 0.7em
+      @include less-then-tablet-vertical
+        padding: 0
+    > div
+      @extend .display--flex, .z-index--10
+      @include less-then-tablet-vertical
+        flex-direction: column
+      &:first-child > a:first-child
+        padding-left: 0
+      &:last-child
+        @extend .justify-self--end
+        @include less-then-tablet-vertical
+          justify-self: auto
+        > a:last-child
+          padding-right: 0
     details
-      @extend .cursor--default, .position--relative
-      > div
-        line-height: 1.7
-        border-radius: 3px
-        @extend .background-color--blue-muted, .position--absolute
-        top: 2.5em
-        left: 0
+      @extend .cursor--default, .position--relative, .white-space--nowrap
       summary
-        pointer-events: none
         // Remove marker
-        @extend .display--block, .color--white-muted
+        @extend .display--block, .color--accent
         &.active
-          @extend .color--white
+          @extend .color--coral
+      > div
+        @extend .background-color--bg-muted, .position--absolute, .border-radius--small
+        padding-block: 1.6em 0.4em
+        top: 1em
+        left: 0
+        @include less-then-tablet-vertical
+          position: static
+          padding: 0 1em

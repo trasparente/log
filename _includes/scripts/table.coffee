@@ -1,5 +1,5 @@
 # Inject search box in TABLES
-$('table').each ->
+$('table:not(.no-search)').each ->
   table = $ @
 
   # Add `search-string` attribute to TR

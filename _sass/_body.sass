@@ -1,18 +1,44 @@
+*
+  box-sizing: border-box
+
+html
+  overflow-y: scroll
+  scroll-behavior: smooth
+
 body
-  @extend .color--white, .background-color--blue-muted
-  @include scheme-light
-    color: var(--color-blue)
-    background-color: var(--color-white)
-  line-height: var(--line-height)
+  @extend .color--fg, .background-color--bg-muted, .font-size--medium, .line-height--medium
   font-family: var(--font-family-helvetica)
-  font-size: var(--font-size)
   margin: 0
   padding: 0
+  @include less-then-tablet-vertical
+    font-size: #{map-get($font-size-pixel, small)}
 
 main
-  padding: 1em 1.5em
-  @extend .background-color--blue
+  @extend .padding-body-elements, .background-color--bg
+  &::after
+    @extend .clear--both
 
 footer
-  padding: 1em 1.5em
-  @extend .color--white-muted
+  @extend .padding-body-elements, .color--fg-muted, .font-size--percent-small
+
+img
+  @extend .display--block
+  max-width: 100%
+
+hr
+  @extend .color--bg-muted
+  border-style: solid
+  border-width: 1px 0 0 0
+
+blockquote
+  @extend .background-color--bg-muted, .font-size--big, .border-radius--medium
+  margin: 1em 0
+  padding: 0.5em 1em
+  > p
+    &:first-child
+      margin-top: 0
+    &:last-child
+      margin-bottom: 0
+  &[cite]::after
+    content: attr(cite)
+    @extend .text-align--right, .display--block, .font-size--small, .font-style--italic

@@ -41,25 +41,12 @@ Kramdown
 
 ### Colors and Shades
 
-{% assign colors = 'red,orange,yellow,forest,green,cyan,blue,violet,fucsia' | split: ',' %}
-{% assign shades = 'secondary,faint,subtle,liminal,default' | split: ',' %}
-{% assign sub_shades = 'faint,subtle,liminal' | split: ',' %}
+{% assign colors = 'blue,green,pink,red,purple,coral' | split: ',' %}
+{% assign shades = '0' | split: ',' %}
 <div class="flex flex-wrap">
-  <ul class="mz list-style-none">
-    {% for s in shades %}<li class="{{ s }}-fg spacing-minimal">.{{ s }}-fg</li>{% endfor %}
-    <li class="blink spacing-minimal">.blink</li>
-  </ul>
-  <ul class="mz list-style-none">
-    {% for s in shades %}<li class="{{ s }}-bg spacing-minimal">.{{ s }}-bg</li>{% endfor %}
-  </ul>
-  <ul class="mz list-style-none">
-    {% for c in colors %}<li class="{{ c }}-fg spacing-minimal">.{{ c }}-fg</li>{% endfor %}
-  </ul>
-  <ul class="mz list-style-none">
-    {% for c in colors %}<li class="{{ c }}-bg spacing-minimal">.{{ c }}-bg</li>{% endfor %}
-  </ul>
-  <ul class="mz list-style-none">
-    {% for c in colors %}<li class="{{ c }}-subtle-bg spacing-minimal">.{{ c }}-subtle-bg</li>{% endfor %}
+  <ul class="list-style--none">
+    <li class="blink">.blink</li>
+    {% for c in colors %}<li class="color--{{ c }}-0">.color--{{c}}-0</li>{% endfor %}
   </ul>
 </div>
 
@@ -79,10 +66,11 @@ Footnotes[^footnote-name]
 
 ### Code blocks
 
-- Fenced: <code class='secondary-fg'>```lang ... ```</code>
+- Fenced: <code>```lang ... ```</code>
+- Tilded: `~~~ lang ... ~~~`
+- Indented: 4 spaces `code`, end with `{:.language-lang}`
 - Liquid: `{% raw %}{%- highlight lang -%}{% endraw %} ... {% raw %}{%- endhighlight -%}{% endraw %}`{:.language-liquid}
-- Kramdown: `~~~ lang ... ~~~`
-- Indented: 4 spaces, end with `{:.language-lang}`
+
 
 ### Forms
 

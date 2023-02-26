@@ -1,14 +1,61 @@
 $headings-margins: 0.67 0.83 1 1.33 1.67 2.33 !default
+$padding-box-elements: .5em
+
+$white: #ffffff
+$grey-0: #f6f8fa
+$grey-1: #c9d1d9
+$grey-3: #8b949e
+$grey-5: #57606a
+$grey-6: #30363d
+$grey-7: #24292f
+$grey-75: #21262d
+$grey-8: #161b22
+$grey-9: #0d1117
+$grey-10: #0b0e11
+$blue-0: #cae8ff
+$blue-3: #58a6ff
+$blue-4: #388bfd
+$blue-5: #0969da
+$blue-6: #54aeff
+$green-0: #aff5b4
+$orange-5: #bc4c00
+$orange-7: #762c00
+$pink-0: #ffdaec
+$coral-2: #fff3
+$coral-3: #f78166
+$coral-4: #fd8c73
+$coral-5: #c4432b
+$red-1: #ffc1ba
+$purple-1: #e2c5ff
+$colors-0: (blue: #cae8ff, green: #aff5b4, pink: #ffdaec, red: #ffdcd7, purple: #eddeff, coral: #ffddd2, yellow: #f8e3a1)
 
 \:root
+  // COLORS
+  --color-fg: #{$grey-1}
+  --color-fg-muted: #{$grey-3}
+  --color-bg: #{$grey-9}
+  --color-bg-muted: #{$grey-8}
+  --color-bg-code: #{$grey-10}
+  --color-border: #{$grey-6}
+  --color-border-muted: #{$grey-75}
+  --color-accent: #{$blue-3}
+  --color-accent-muted: #{$blue-4}
+  --color-coral: #{$coral-3}
+  --color-coral-muted: #{$coral-2}
+  // FONTS
   --font-size: 20px
-  --line-height: 1.5
-  --color-blue: hsl(216, 27.8%, 7.1%)
-  --color-blue-muted: hsl(215, 21.4%, 11%)
-  --color-white: hsl(210, 17.4%, 82%)
-  --color-white-muted: hsl(211.6, 8.9%, 58.2%)
-  --color-accent: hsl(212, 100%, 67.3%)
   --font-family-helvetica: 'Helvetica', 'Nimbus Sans', sans-serif
   --font-family-arial: 'Arial', 'Liberation Sans', sans-serif
   --font-family-mono: 'Liberation Mono', monospace
   --icon-width: 30px
+@media (prefers-color-scheme: light)
+  \:root
+    // PAGE COLORS
+    --color-fg: #{$grey-7}
+    --color-fg-muted: #{$grey-6}
+    --color-bg: #{$white}
+    --color-bg-muted: #{$grey-0}
+    --color-accent: #{$blue-6}
+    --color-accent-muted: #{$blue-5}
+    --color-coral: #{$orange-5}
+    --color-coral-muted: #{$orange-7}

@@ -11,10 +11,10 @@ main
       @extend .mtz
 
     // Rearrange H1 page title if metadata present
-    > h1:first-child + .log
+    > h1:first-child + .metadata
       // Neutralize H! bottom margin
       position: relative
-      top: calc(var(--two-third) * -1)
+      top: 1em
       // Hide true H1
       & + h1
         @extend .hidden

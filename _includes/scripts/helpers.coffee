@@ -37,6 +37,17 @@ $('[cite]:not([title])').each -> $(@).attr 'title', $(@).attr 'cite'
 $('[href]:not([title])').each -> $(@).attr 'title', $(@).attr 'href'
 
 #
+# TABLES on MOBILE
+# --------------------------------------
+# $('main table').each ->
+#   table = $ @
+#   table
+#     .after($('<div style="overflow-x:auto;margin-block:1em"></div>')
+#     .append(table.clone().css('margin',0)))
+#   table.remove()
+#   return
+
+#
 # Search function for INPUT.search-input
 # on `keydown`, filter [search-string] elements
 # hiding those not containing the input value
@@ -88,7 +99,7 @@ if location.search
     $("[search-#{k}]").each ->
       element = $ @
       attr = element.attr "search-#{k}"
-      if !attr or !attr.includes v then element.addClass 'hidden'
+      if !attr or !attr.includes v then element.addClass 'display--none'
       return
     # Add `.active` to filter links
     $("[rel*='search'][href*='#{k}'][href*='#{v}']").each ->
@@ -102,7 +113,7 @@ if location.search
 
 #
 # SCROLL Event
-# Add `html.scrolled` when scroll > screen
+# Add `html.scrolled` when scroll > win height
 # --------------------------------------
 win.scroll () ->
   if win.scrollTop() > win.height()
@@ -129,7 +140,8 @@ if document.hasFocus() then focus() else blur()
 if navigator.onLine then online() else offline()
 
 #
-# WINDOW RESIZE
+# FULLSCREEN: WINDOW RESIZE EVENT
+# Add class `fullscreen`
 # Called from BODY attribute
 # --------------------------------------
 

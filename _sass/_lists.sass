@@ -1,0 +1,13 @@
+ul
+  @extend .padding-inline--2
+
+li, dd
+  &::marker, &:before
+    @extend .color--fg-muted
+
+dl
+  dt
+    @extend .font-weight--bold, .color--blue-0
+    margin-block-start: 0.5em
+  dd
+    margin-inline-start: 1.5em

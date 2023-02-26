@@ -1,27 +1,28 @@
+close_sibilings = (item) -> item.siblings('details').each -> $(@)[0].open = false
+
 # Open details on hover for NAV
-$('nav .wrapper > details, nav .wrapper > a').each ->
+$('nav details, nav .wrapper > a').each ->
   item = $(@)
   item.hover ->
-    # close sibilings
-    item.siblings('details').each -> $(@)[0].open = false
+    close_sibilings item
     if item.prop('tagName') is 'DETAILS' then item[0].open = true
     return
   return
 
 # Close navigation details when on main
-$('main').hover -> $('nav .wrapper > details').each ->
+$('main').hover -> $('nav details').each ->
   $(@)[0].open = false
   return
 
 # Save and Load states from cookie
-$('details').each ->
+$('main details').each ->
 
   # Prepare
   detail = $ @
   states = cookie.get('states') || []
   summary = detail.find 'summary'
   # filter page-agnostic details
-  title = if detail.parents('aside.sidebar').length then 'details' else body.attr 'page-title'
+  title = if detail.parents('nav').length then 'details' else body.attr 'page-title'
   id = "#{title}|#{$.trim summary.text()}"
 
   # Initial check on Details cookie array

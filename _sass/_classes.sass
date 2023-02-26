@@ -1,35 +1,84 @@
-@mixin scheme-light
-  @media (prefers-color-scheme: light)
-    @content
-
 //
 // COLORS
 // --------------------------------------
-@each $color in ('blue','white')
+
+// FOREGROUND
+@each $color in fg fg-muted bg-muted accent accent-muted coral coral-muted
   .color--#{$color}
     color: var(--color-#{$color})
-  .color--#{$color}-muted
-    color: var(--color-#{$color}-muted)
+
+// BACKGROUND
+@each $color in bg bg-muted bg-code accent-muted coral-muted
   .background-color--#{$color}
     background-color: var(--color-#{$color})
-  .background-color--#{$color}-muted
-    background-color: var(--color-#{$color}-muted)
+
+// BORDER
+// -top -right -bottom -left
+// --muted --0
+@each $side in top right bottom left
+  .border-#{$side}
+    border-#{$side}: 1px solid var(--color-border)
+  .border-#{$side}--muted
+    border-#{$side}: 1px solid var(--color-border-muted)
+  .border-#{$side}--0
+    border-#{$side}: 0
+
+.border
+  border: 1px solid var(--color-border)
+.border--muted
+  border: 1px solid var(--color-border-muted)
+
+// BORDER RADIUS
+@each $border, $pixels in (small: 3px, medium: 6px)
+  .border-radius--#{$border}
+    border-radius: #{$pixels}
+
+// COLOR 0
+@each $color, $hex in $colors-0
+  .color--#{$color}-0
+    color: $hex
+
+// BLINK
+.blink
+  animation: blinker 1s step-start infinite
+@keyframes blinker
+  50%
+    opacity: 0
+
+// CLEAR
+.clear--both
+  display: table
+  clear: both
+  content: ""
+
+// FLOAT RIGHT
+.float--right
+  float: right
+
+// WIDTH PERCENT
+@each $width in 20 100
+  .width--#{$width}-percent
+    width: $width * 1%
 
 //
 // DISPLAY
 // --------------------------------------
 
-@each $display in ('block','flex','inline','none')
+@each $display in block flex inline inline-block grid table none
   .display--#{$display}
     display: #{$display}
 
+//
+// FLEX
+// --------------------------------------
+
 // FLEX WRAP
-@each $wrap in ('wrap')
+@each $wrap in wrap
   .flex-wrap--#{$wrap}
     flex-wrap: #{$wrap}
 
 // JUSTIFY CONTENT
-@each $justify in ('space-between','space-around')
+@each $justify in space-between space-around flex-end
   .justify-content--#{$justify}
     justify-content: #{$justify}
 .justify-content--space-variable
@@ -37,41 +86,153 @@
   @include less-then-tablet-vertical
     justify-content: space-between
 
+//
+// GRID
+// --------------------------------------
+
+// JUSTIFY SELF
+@each $justify in end
+  .justify-self--#{$justify}
+    justify-self: #{$justify}
+
 // POSITION
-@each $position in ('relative','absolute','fixed')
+@each $position in static relative absolute fixed
   .position--#{$position}
     position: #{$position}
 
+// GAP EM
+// .gap .row-gap .column-gap
+@each $gap, $value in (1: 1em, 2: 2em)
+  .gap--#{$gap}
+    gap: #{$value}
+  .row-gap--#{$gap}
+    row-gap: #{$value}
+  .column-gap--#{$gap}
+    column-gap: #{$value}
+
 //
-// TYPOGRAPHY
+// TEXT
 // --------------------------------------
 
+.font-style--italic
+  font-style: italic
+
+// ALIGN
+@each $side in right center
+  .text-align--#{$side}
+    text-align: #{$side}
+
+// WEIGHT
+@each $weight in normal bold 200 400 600 900
+  .font-weight--#{$weight}
+    font-weight: #{$weight}
+
+// SIZE PIXEL
+$font-size-pixel: (big: 22px, medium: 20px, small: 18px) !default
+@each $size, $pixel in $font-size-pixel
+  .font-size--#{$size}
+    font-size: #{$pixel}
+
+// FONT SIZE PERCENT
+$font-size-percent: (big: 110, medium: 100, small: 95, smaller: 90) !default
+@each $size, $percent in $font-size-percent
+  .font-size--percent-#{$size}
+    font-size: $percent * 1%
+
+// LINE HEIGHT
+@each $size, $height in (small: 1.2, medium: 1.5)
+  .line-height--#{$size}
+    line-height: #{$height}
+
 // WORD WRAP
-@each $wrap in ('break-word')
+@each $wrap in break-word
   .word-wrap--#{$wrap}
     word-wrap: #{$wrap}
 
 // WHITE SPACE
-@each $space in ('nowrap')
+@each $space in nowrap pre-wrap
   .white-space--#{$space}
     white-space: #{$space}
 
 // LIST STYLE
-@each $style in ('none')
+@each $style in none
   .list-style--#{$style}
     list-style: #{$style}
 
-// GAPs
-@each $gap in (5,10,20,50)
-  .gap--#{$gap}
-    gap: #{$gap}px
-
 // CURSOR
-@each $cursor in ('pointer','default')
+@each $cursor in default pointer help
   .cursor--#{$cursor}
     cursor: #{$cursor}
 
 // Z INDEX
-@each $scale in (0,1,10,100)
+@each $scale in 0 1 10 100
   .z-index--#{$scale}
     z-index: #{$scale}
+
+//
+// PADDING
+// --------------------------------------
+.padding-box-elements
+  padding: $padding-box-elements
+
+@each $padding, $number in (quarter: 0.25, half: 0.5, three-quarter: 0.75, single: 1, 2: 2)
+  .padding-block--#{$padding}
+    padding-block: #{$number}em
+  .padding-inline--#{$padding}
+    padding-inline: #{$number}em
+
+.padding-body-elements
+  @extend .padding-block--single, .padding-inline--2
+  @include less-then-tablet-vertical
+    padding-inline: 1em
+
+//
+// MARGIN
+// --------------------------------------
+@each $margin, $value in (0: 0em, half: 0.5em, 1: 1em, 2: 2em, 3: 3em, auto: auto)
+  .margin--#{$margin}
+    margin: #{$value}
+  @each $side in top right bottom left inline block
+    .margin-#{$side}--#{$margin}
+      margin-#{$side}: #{$value}
+
+//
+// MIX BLEND MODE
+// --------------------------------------
+@each $mix in difference exclusion
+  .mix-blend-mode--#{$mix}
+    mix-blend-mode: #{$mix}
+
+//
+// HIDE
+// --------------------------------------
+
+// "nothing found" elements
+.only-visible-child
+  @extend .display--none
+
+// SAME-NAME STATES
+html
+  &.logged .unlogged, &.unlogged .logged,
+  &.online .offline, &.offline .online,
+  &.updated .behind, &.behind .updated,
+  &.blur .focus, &.focus .blur,
+  &.admin .guest, &.unlogged .guest, &.guest .admin, &.unlogged .admin
+    @extend .display--none
+
+// IS A FORK
+body
+  &[data-github-fork=true] .unforked, &[data-github-fork=false] .forked,
+    @extend .display--none
+
+//
+// SOECIAL ELEMENTS
+// --------------------------------------
+.metadata, .pagination
+  @extend .font-size--small, .color--fg-muted, .display--flex, .column-gap--1, .clear--both, .padding-inline--half, .flex-wrap--wrap
+  a
+    @extend .font-style--italic
+
+.pagination
+  @extend .margin-top--3, .justify-content--space-between, .border-top--muted
+  padding-top: 1em

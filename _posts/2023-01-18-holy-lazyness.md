@@ -8,9 +8,9 @@ source: https://www.youtube.com/watch?v=Ecy4WLXjZuc
 Holy Lazyness
 =============
 
-![Bubbleverse](https://i.imgur.com/ykKDyDS.png){:.mix-blend-lighten}
-
 > The very concept of non-existence carries with itself its own annihilation.
+
+![Bubbleverse](https://i.imgur.com/ykKDyDS.png){:.mix-blend-mode--exclusion .width--100-percent}
 
 Take your stand as **Awareness**, welcome perceptions across the field of awareness, don't chase or touch them. It says yes to everything that arise, it's absolute positivity, everything flows freely, no resistance.
 

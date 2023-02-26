@@ -1,0 +1,37 @@
+table
+  border-spacing: 0
+  border-collapse: separate
+  margin-block: 1em
+  @extend .background-color--bg, .border-radius--medium
+
+  // BORDERS
+  @extend .border
+  thead th
+    @extend .background-color--bg-muted, .border-bottom
+  tbody
+    tr:not(:last-of-type) td
+      @extend .border-bottom
+    tr td:not(:last-of-type)
+      @extend .border-right
+  tfoot td
+    @extend .border-top
+    @extend .background-color--bg-muted
+
+  // SPECIAL CLASSES
+
+  &.first-column--muted
+    td, th
+      &:first-child
+        @extend .border-bottom--0, .background-color--bg-muted
+
+  // GITHUB
+  width: 100%
+  width: max-content
+  max-width: 100%
+  overflow: auto
+  td, th
+    padding: 0.25em 0.5em
+
+  .search-container
+    display: table-caption
+    caption-side: top

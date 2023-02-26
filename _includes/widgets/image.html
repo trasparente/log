@@ -1,7 +1,7 @@
 <figure class="{{ include.figure-class }}">
-  {% unless include.nolink %}<a ref="_blank" href="{{ include.url }}">{% endunless %}
+  {% if include.link %}<a ref="_blank" href="{{ include.link }}">{% endif %}
   <img src="{{ include.url }}" alt="{{ include.alt | default: include.url }}" class="{{ include.image-class }}"{% if include.height %} height="{{ include.height }}"{% endif %}{% if include.width %} width="{{ include.width }}"{% endif %}/>
-  {% unless include.nolink %}</a>{% endunless %}
+  {% if include.link %}</a>{% endif %}
   {% if include.caption %}<figcaption class="{{ include.caption-class }}">{{ include.caption | markdownify }}</figcaption>{% endif %}
 </figure>
 
@@ -24,5 +24,5 @@ Description
 - `figure-class`: optional class list for the `<figure>`{:.language-html}
 - `image-class`: optional class list for the `<image>`{:.language-html}
 - `caption-class`: optional class list for the `<figcaption>`{:.language-html}
-- `nolink`: if `true` image is not clickable
+- `link`: url for image click event, default `nil`
 {%- endcapture -%}

@@ -15,24 +15,27 @@ svg[class^=icon]
   &:active, &.active
     stroke: var(--color-fg)
   &.icon-to-top
-    @extend .display--block, .z-index--10, .cursor--pointer
-    margin: var(--icon-width)
+    @extend .display--block, .z-index--10
     opacity: 0
-    position: fixed
     transition: opacity 0.4s
-    bottom: 0
-    right: 0
 
 a[href='#top']
+  @extend .display--block, .cursor--default
+  position: fixed
+  bottom: 0
+  right: 0
   width: var(--icon-width)
   height: var(--icon-width)
-  @extend .display--block
+  margin: var(--icon-width)
 
 //
 // SHOW TO-TOP ARROW when scrolled 1 viewport
 // --------------------------------------
-html.scrolled svg.icon-to-top
-  opacity: 1
+html.scrolled
+  a[href='#top']
+    @extend .cursor--pointer
+  svg.icon-to-top
+    opacity: 1
 
 //
 // ROTATION of GEAR icon when ajax request

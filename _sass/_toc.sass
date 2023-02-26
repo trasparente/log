@@ -1,6 +1,8 @@
 // Table Of Contents list
 ul#markdown-toc
-  @extend .display--flex, .gap--50, .list-style--none, .flex-wrap--wrap
+  @extend .display--flex, .gap--2, .list-style--none, .flex-wrap--wrap
+  @include less-then-tablet-vertical
+    gap: 1em
   counter-reset: item
   > li
     counter-increment: item

@@ -26,17 +26,18 @@ permalink: archive/
 {% assign cats_group = all | group_by: 'categories' %}
 {% assign dates_group = site.posts | group_by_exp: 'item', 'item.date | date_to_string | split: " " | slice: 1, 2 | join: " "' %}
 
-<div class='log margin-box' markdown="1">
-Authored: {% for a in authors_group %}<a href='?authored={{ a.name }}' rel='search' title='Search author'>{{ a.name }}</a>{% if a.items.size > 1 %}<sup>{{ a.items.size }}</sup>{% endif %}{% unless forloop.last %},&nbsp;{% endunless %}{% endfor %}
-
-Published: {% for d in dates_group %}<a href='?published={{ d.name }}' rel='search' title='Search date'>{{ d.name }}</a>{% if d.items.size > 1 %}<sup>{{ d.items.size }}</sup>{% endif %}{% unless forloop.last %},&nbsp;{% endunless %}{% endfor %}
-
-Categorized: {% for c in cats %}<a href='?categorized={{ c }}' rel='search' title='Search category'>{{ c }}</a>{% assign cond = 'item.name contains "' | append: c | append: '"' %}{% capture how_many %}{{ cats_group | where_exp: 'item', cond | size }}{% endcapture %}{% assign how_many = how_many | plus: 0 %}{% if how_many > 1 %}<sup>{{ how_many }}</sup>{% endif %}{% unless forloop.last %},&nbsp;{% endunless %}{% endfor %}
-
-Tagged: {% for t in tags %}<a href='?tagged={{ t }}' rel='search' title='Search tag'>{{ t }}</a>{% assign cond = 'item.name contains "' | append: t | append: '"' %}{% capture how_many %}{{ tags_group | where_exp: 'item', cond | size }}{% endcapture %}{% assign how_many = how_many | plus: 0 %}{% if how_many > 1 %}<sup>{{ how_many }}</sup>{% endif %}{% unless forloop.last %},&nbsp;{% endunless %}{% endfor %}
-
+<dl>
+  <dt>Authored</dt>
+  <dd>{% for a in authors_group %}<a href='?authored={{ a.name }}' rel='search' title='Search author'>{{ a.name }}</a>{% if a.items.size > 1 %}<sup>{{ a.items.size }}</sup>{% endif %}{% unless forloop.last %},&nbsp;{% endunless %}{% endfor %}</dd>
+  <dt>Published</dt>
+  <dd>{% for d in dates_group %}<a href='?published={{ d.name }}' rel='search' title='Search date'>{{ d.name }}</a>{% if d.items.size > 1 %}<sup>{{ d.items.size }}</sup>{% endif %}{% unless forloop.last %},&nbsp;{% endunless %}{% endfor %}</dd>
+  <dt>Categorized</dt>
+  <dd>{% for c in cats %}<a href='?categorized={{ c }}' rel='search' title='Search category'>{{ c }}</a>{% assign cond = 'item.name contains "' | append: c | append: '"' %}{% capture how_many %}{{ cats_group | where_exp: 'item', cond | size }}{% endcapture %}{% assign how_many = how_many | plus: 0 %}{% if how_many > 1 %}<sup>{{ how_many }}</sup>{% endif %}{% unless forloop.last %},&nbsp;{% endunless %}{% endfor %}</dd>
+  <dt>Tagged</dt>
+  <dd>{% for t in tags %}<a href='?tagged={{ t }}' rel='search' title='Search tag'>{{ t }}</a>{% assign cond = 'item.name contains "' | append: t | append: '"' %}{% capture how_many %}{{ tags_group | where_exp: 'item', cond | size }}{% endcapture %}{% assign how_many = how_many | plus: 0 %}{% if how_many > 1 %}<sup>{{ how_many }}</sup>{% endif %}{% unless forloop.last %},&nbsp;{% endunless %}{% endfor %}</dd>
+</dl>
 <a href='{{ page.url | absolute_url }}' class='green-fg'>Reset filters</a>
-</div>
+
 ---
 <div>
 {% for c in site.collections reversed %}

@@ -1,5 +1,19 @@
-code
-  @extend .color--white-muted
+tt, code, kbd, samp
+  @extend .color--fg-muted, .font-size--percent-smaller, .background-color--bg-code
   font-family: var(--font-family-mono)
-  font-size: 18px
   padding: 0px 3px
+
+// INLINE HIGHLIGHTED
+code.highlighter-rouge
+  @extend .color--coral-0
+  letter-spacing: -0.7px
+
+// BLOCKS HIGHLIGHTED
+// Fenced, kramdown, indented:
+// div.highlighter-rouge > div.highlight > pre.highlight > code
+// liquid:
+// figure.highlight > pre > code
+.highlight pre
+  @extend .white-space--pre-wrap, .line-height--small, .background-color--bg-code, .padding-block--three-quarter, .padding-inline--single, .border-radius--medium, .font-size--percent-smaller
+  code
+    padding: 0px

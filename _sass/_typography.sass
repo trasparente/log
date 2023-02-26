@@ -1,0 +1,38 @@
+//
+// CURSOR
+// --------------------------------------
+
+// HELP
+abbr
+  @extend .cursor--help
+
+// TITLE and CITE
+p, span, code, li, small, q, cite, time, blockquote
+  &[title], &[cite]
+    @extend .cursor--default
+
+strong, em
+  @extend .color--blue-0
+
+// Inserted and deleted
+ins
+  @extend .color--green-0
+del
+  @extend .color--red-0
+
+main .wrapper > h1:first-child + .metadata
+  // Neutralize H! bottom margin
+  position: relative
+  top: -1em
+  // Hide true H1
+  & + h1
+    @extend .display--none
+
+h1
+  font-size: 2em
+  @extend .border-bottom--muted, .padding-inline--quarter
+h2
+  margin-top: #{nth($headings-margins, 2) * 3}em
+  @extend .border-bottom--muted, .padding-inline--quarter
+h3
+  margin-top: #{nth($headings-margins, 3) * 3}em
